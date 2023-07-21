@@ -8,6 +8,7 @@ public class IngenieriaZoologicoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(IngenieriaZoologicoApplication.class, args);
+		System.out.println("XD");
 	}
 
 }
