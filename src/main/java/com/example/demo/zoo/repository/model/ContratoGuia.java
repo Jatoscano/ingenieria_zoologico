@@ -18,28 +18,28 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Component
-@Table(name = "guia")
+@Table(name = "contrato_guia")
 @Entity
-public class Guia {
+public class ContratoGuia {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_guia")
-	@SequenceGenerator(name = "seq_guia", sequenceName = "seq_guia", allocationSize = 1)
-	@Column(name = "guia_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_contrato_guia")
+	@SequenceGenerator(name = "seq_contrato_guia", sequenceName = "seq_contrato_guia", allocationSize = 1)
+	@Column(name = "cgui_id")
 	private Integer id;
-	@Column(name = "guia_fecha_hora_inicio")
+	@Column(name = "cgui_fecha_hora_inicio")
 	private LocalDateTime fechaHoraIncio;
-	@Column(name = "guia_fecha_hora_fin")
+	@Column(name = "cgui_fecha_hora_fin")
 	private LocalDateTime fechaHoraFin;
-	@Column(name = "guia_costo")
+	@Column(name = "cgui_costo")
 	private BigDecimal costo;
 	/*
-	@OneToOne
-	@JoinColumn(name = "guia_id_empleado")
+	@ManyToOne
+	@JoinColumn(name = "cgui_id_empleado")
 	private Empleado empleado;
 	
 	@ManyToOne
-	@JoinColumn(name = "guia_id_nota_venta")
+	@JoinColumn(name = "cgui_id_nota_venta")
 	private NotaVenta notaVenta;
 	
 	*/
@@ -72,7 +72,7 @@ public class Guia {
 	}
 	@Override
 	public String toString() {
-		return "Guia [id=" + id + ", fechaHoraIncio=" + fechaHoraIncio + ", fechaHoraFin=" + fechaHoraFin + ", costo="
+		return "CGuia [id=" + id + ", fechaHoraIncio=" + fechaHoraIncio + ", fechaHoraFin=" + fechaHoraFin + ", costo="
 				+ costo + "]";
 	}
 	
