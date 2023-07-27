@@ -33,16 +33,16 @@ public class Guia {
 	private LocalDateTime fechaHoraFin;
 	@Column(name = "guia_costo")
 	private BigDecimal costo;
-	/*
-	@OneToOne
+	
+	@ManyToOne
 	@JoinColumn(name = "guia_id_empleado")
 	private Empleado empleado;
+	
 	
 	@ManyToOne
 	@JoinColumn(name = "guia_id_nota_venta")
 	private NotaVenta notaVenta;
-	
-	*/
+
 	
 	//gets  y sets
 	public Integer getId() {

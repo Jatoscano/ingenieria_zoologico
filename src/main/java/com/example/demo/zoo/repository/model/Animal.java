@@ -1,6 +1,7 @@
 package com.example.demo.zoo.repository.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -8,7 +9,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -48,11 +51,14 @@ public class Animal {
 	@ManyToMany(mappedBy = "animales")
 	private Set<Recinto> recintos;
 	
-	/* MAPEAR CON ATENCION MEDICA!!!!
-	 * GENERAR LOS GET Y SETS
+	//MAPEAR CON ATENCION MEDICA!!!!
+	//GENERAR LOS GET Y SETS
 	@OneToMany(mappedBy = "animal")
 	private List<AtencionMedica> atencionesMedicas;
-	*/
+	
+	@ManyToOne
+	@JoinColumn(name = "anim_id_empleado")
+	private Empleado empleado;
 	
 	//GET&SET
 	public Integer getId() {

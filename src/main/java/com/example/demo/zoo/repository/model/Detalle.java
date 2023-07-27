@@ -35,11 +35,11 @@ public class Detalle {
 	@JoinColumn(name = "deta_id_articulo")
 	private Articulo articulo;
 
-	/*
+	
 	@ManyToOne
 	@JoinColumn(name = "data_id_factura")
 	private Factura fatura;
-	*/
+	
 	
 	//To String
 	@Override

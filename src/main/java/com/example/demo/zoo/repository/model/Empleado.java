@@ -5,9 +5,13 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,8 +19,8 @@ import jakarta.persistence.Table;
 public class Empleado {
 	
 	@Id
-	//@GeneratedValue(generator = "seq_empleado" , strategy =  GenerationType.SEQUENCE)
-	//@SequenceGenerator(name = "seq_empleado" ,sequenceName = "seq_empleado",allocationSize = 1)
+	@GeneratedValue(generator = "seq_empleado" , strategy =  GenerationType.SEQUENCE.SEQUENCE)
+	@SequenceGenerator(name = "seq_empleado" ,sequenceName = "seq_empleado",allocationSize = 1)
 	@Column(name = "empl_id")
 	private Integer id;
 	
@@ -45,12 +49,15 @@ public class Empleado {
 	private String observacion;
 	
 	@OneToMany(mappedBy = "empleado")
+	private List<Animal> animales;
+	
+	@OneToMany(mappedBy = "empleado")
 	private List<AtencionMedica> atencionMedica;
 	
 	
-//	@OneToMany(mappedBy = "empleado")
-//	@JoinColumn(name="empleado_id_contrato_guia")
-//	private List<contrato_guia)contrato_guia;
+	@OneToMany(mappedBy = "empleado")
+	@JoinColumn(name="empleado_id_contrato_guia")
+	private List<Guia>contrato_guia;
 	
 	
 
