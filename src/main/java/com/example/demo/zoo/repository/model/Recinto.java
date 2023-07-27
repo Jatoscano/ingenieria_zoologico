@@ -38,6 +38,13 @@ public class Recinto {
 	private Set<Animal> animales;
 
 	
+	
+	@Override
+	public String toString() {
+		return "Recinto [id=" + id + ", numero=" + numero + ", descripcion=" + descripcion + ", zona=" + zona
+				+ ", animales=" + animales + "]";
+	}
+
 	//GET&SET
 	public Integer getId() {
 		return id;
@@ -78,13 +85,4 @@ public class Recinto {
 	public void setAnimales(Set<Animal> animales) {
 		this.animales = animales;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

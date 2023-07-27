@@ -51,6 +51,14 @@ public class AlimentoDisponible {
 	private Set<Proveedor> proveedores;
 
 	
+	@Override
+	public String toString() {
+		return "AlimentoDisponible [id=" + id + ", nombre=" + nombre + ", cantidadDisponible=" + cantidadDisponible
+				+ ", fechaCaducidad=" + fechaCaducidad + ", limiteAlmacenamiento=" + limiteAlmacenamiento
+				+ ", costoPeso=" + costoPeso + ", tipo=" + tipo + ", animales=" + animales + ", proveedores="
+				+ proveedores + "]";
+	}
+
 	//GET&SET
 	public Integer getId() {
 		return id;
@@ -123,10 +131,4 @@ public class AlimentoDisponible {
 	public void setProveedores(Set<Proveedor> proveedores) {
 		this.proveedores = proveedores;
 	}
-	
-
-	
-	
-	
-	
 }

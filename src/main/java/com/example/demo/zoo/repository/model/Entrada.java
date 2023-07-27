@@ -36,11 +36,11 @@ public class Entrada {
 	@JoinColumn(name = "entr_id_zoologico")
 	private Zoologico zoologico;
 
-	/*
+	
 	@ManyToOne
 	@JoinColumn(name = "entr_id_nota_venta")
 	private NotaVenta notaVenta;
-	*/
+	
 	
 	//Gets y sets
 

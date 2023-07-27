@@ -29,11 +29,11 @@ public class Zoologico {
 	@OneToMany(mappedBy = "zoologico")
 	private List<Entrada> entradas;
 	
-	// @OneToMany(mappedBy = "zoologico")
-	// private List<Empleado> empleados;
+	@OneToMany(mappedBy = "zoologico")
+	private List<Empleado> empleados;
 
-	// @OneToMany(mappedBy = "zoologico")
-	// private List<Tienda> tiendas;
+	@OneToMany(mappedBy = "zoologico")
+	private List<Tienda> tiendas;
 	
 
 	public Integer getId() {
