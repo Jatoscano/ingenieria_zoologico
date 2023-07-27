@@ -25,13 +25,13 @@ public class NotaVenta {
 	@Column(name = "nove_id")
 	private Integer id;
 	@Column(name = "nove_costo_unidad")
-	private BigDecimal costoUni;
+	private BigDecimal costoUnidad;
 	@Column(name = "nove_costo_total")
-	private BigDecimal costoTot;
+	private BigDecimal costoTotal;
 	
 	//RELACION CON ENTRADAS DE 1 A MUCHOS
 	//@OneToMany(mappedBy = "nota_venta", fetch = FetchType.LAZY)
-	//private List<Enttrada> entradas;
+	//private List<Entrada> entradas;
 
 	// set y get 
 	
@@ -59,11 +59,11 @@ public class NotaVenta {
 		this.costoTot = costoTot;
 	}
 /*
-	public List<Enttrada> getEntradas() {
+	public List<Entrada> getEntradas() {
 		return entradas;
 	}
 
-	public void setEntradas(List<Enttrada> entradas) {
+	public void setEntradas(List<Entrada> entradas) {
 		this.entradas = entradas;
 	}
 */
