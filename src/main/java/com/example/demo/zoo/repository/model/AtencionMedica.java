@@ -14,44 +14,38 @@ import jakarta.persistence.Table;
 @Table(name = "atencion_medica")
 public class AtencionMedica {
 
-	//@GeneratedValue(generator = "seq_atencion_medica" , strategy =  GenerationType.SEQUENCE)
-	//@SequenceGenerator(name = "seq_atencion_medica" ,sequenceName = "seq_atencion_medica",allocationSize = 1)
+	@GeneratedValue(generator = "seq_atencion_medica", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "seq_atencion_medica", sequenceName = "seq_atencion_medica", allocationSize = 1)
 	@Column(name = "atme_id")
 	@Id
 	private Integer id;
-	
-	
+
 	@Column(name = "atme_peso")
 	private Float peso;
-	
-	
+
 	@Column(name = "atme_alergia")
 	private String alergia;
-	
-	
+
 	@Column(name = "atme_reflejo")
 	private String reflejo;
-	
-	
+
 	@Column(name = "atme_receta")
 	private String receta;
-	
-	
+
 	@Column(name = "atme_observacion")
 	private String observacion;
-	
-	@ManyToOne
-	@JoinColumn(name = "atencionMedica_id_veterinario")
-	private Veterinario veterinario;
-	
-	@ManyToOne
-	@JoinColumn(name = "atencionMedica_id_empleado")
-	private Empleado empleado;
-	
-	@ManyToOne
-	@JoinColumn(name = "atencionMedica_id_animal")
-	private Animal animal;
 
+	@ManyToOne
+	@JoinColumn(name = "atme_id_veterinario")
+	private Veterinario veterinario;
+
+	@ManyToOne
+	@JoinColumn(name = "atme_id_empleado")
+	private Empleado empleado;
+
+	@ManyToOne
+	@JoinColumn(name = "atme_id_animal")
+	private Animal animal;
 
 	@Override
 	public String toString() {
@@ -131,5 +125,5 @@ public class AtencionMedica {
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
 	}
-	
-}	
+
+}

@@ -51,8 +51,6 @@ public class Animal {
 	@ManyToMany(mappedBy = "animales")
 	private Set<Recinto> recintos;
 	
-	//MAPEAR CON ATENCION MEDICA!!!!
-	//GENERAR LOS GET Y SETS
 	@OneToMany(mappedBy = "animal")
 	private List<AtencionMedica> atencionesMedicas;
 	

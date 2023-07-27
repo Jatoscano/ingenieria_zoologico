@@ -34,7 +34,7 @@ public class Recinto {
 	private String zona;
 	
 	@ManyToMany()
-	@JoinTable(name = "recinto_animal",joinColumns =  @JoinColumn(name = "recinto_id"), inverseJoinColumns = @JoinColumn(name="animal_id"))
+	@JoinTable(name = "recinto_animal",joinColumns =  @JoinColumn(name = "rean_id_recinto"), inverseJoinColumns = @JoinColumn(name="rean_id_animal"))
 	private Set<Animal> animales;
 
 	

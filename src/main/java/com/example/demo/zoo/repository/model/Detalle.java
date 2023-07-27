@@ -38,7 +38,7 @@ public class Detalle {
 	
 	@ManyToOne
 	@JoinColumn(name = "data_id_factura")
-	private Factura fatura;
+	private Factura factura;
 	
 	
 	//To String

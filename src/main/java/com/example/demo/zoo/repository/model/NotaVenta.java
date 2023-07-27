@@ -30,10 +30,10 @@ public class NotaVenta {
 	private BigDecimal costoTotal;
 	
 	//RELACION CON ENTRADAS DE 1 A MUCHOS
-	@OneToMany(mappedBy = "nota_venta", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "notaVenta", fetch = FetchType.LAZY)
 	private List<Entrada> entradas;
 
-	@OneToMany(mappedBy = "nota_venta", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "notaVenta", fetch = FetchType.LAZY)
 	private List<Guia> guias;
 	
 	// set y get 
