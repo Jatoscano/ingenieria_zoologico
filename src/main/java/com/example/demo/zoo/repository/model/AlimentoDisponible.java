@@ -44,10 +44,10 @@ public class AlimentoDisponible {
 	
 	
 	@ManyToMany
-	@JoinTable(name = "alim_animal", joinColumns = @JoinColumn(name="alim_id"), inverseJoinColumns = @JoinColumn(name="animal_id"))
+	@JoinTable(name = "alim_animal", joinColumns = @JoinColumn(name="alan_id_alimento_disponible"), inverseJoinColumns = @JoinColumn(name="alan_id_animal"))
 	private Set<Animal> animales;
 	
-	@ManyToMany(mappedBy = "alimentos")
+	@ManyToMany(mappedBy = "alimentosDisponibles")
 	private Set<Proveedor> proveedores;
 
 	
