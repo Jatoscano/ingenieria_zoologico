@@ -16,8 +16,8 @@ import jakarta.persistence.Table;
 @Entity
 public class Veterinario {
 	
-	//@GeneratedValue(generator = "seq_vete" , strategy =  GenerationType.SEQUENCE)
-	//@SequenceGenerator(name = "seq_vete" ,sequenceName = "seq_vete",allocationSize = 1)
+	//@GeneratedValue(generator = "seq_veterinario" , strategy =  GenerationType.SEQUENCE)
+	//@SequenceGenerator(name = "seq_veterinario" ,sequenceName = "seq_veterinario",allocationSize = 1)
 	@Column(name = "vete_id")
 	@Id
 	private Integer id;

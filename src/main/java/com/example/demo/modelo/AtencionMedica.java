@@ -14,8 +14,8 @@ import jakarta.persistence.Table;
 @Table(name = "atencion_medica")
 public class AtencionMedica {
 
-	//@GeneratedValue(generator = "seq_atme" , strategy =  GenerationType.SEQUENCE)
-	//@SequenceGenerator(name = "seq_atme" ,sequenceName = "seq_atme",allocationSize = 1)
+	//@GeneratedValue(generator = "seq_atencion_medica" , strategy =  GenerationType.SEQUENCE)
+	//@SequenceGenerator(name = "seq_atencion_medica" ,sequenceName = "seq_atencion_medica",allocationSize = 1)
 	@Column(name = "atme_id")
 	@Id
 	private Integer id;
