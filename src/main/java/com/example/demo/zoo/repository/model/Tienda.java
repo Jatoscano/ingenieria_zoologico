@@ -1,7 +1,6 @@
 package com.example.demo.zoo.repository.model;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,9 +29,9 @@ public class Tienda {
 	@Column(name = "tien_horaSalida")
 	private LocalDateTime horaSalida;
 	
-	//Relacion Tienda - Articulo
+	//Relacion Tienda - Producto
 	@ManyToMany(mappedBy = "tiendas")
-	private Set<Articulo> articulos;
+	//private List<Producto> productos;
 	
 	//Relacion Zoologico - Tienda
 	@ManyToOne
@@ -43,46 +42,46 @@ public class Tienda {
 	//To String
 	@Override
 	public String toString() {
-		return "Tienda [id=" + id + ", horaEntrada=" + horaEntrada + ", horaSalida=" + horaSalida + ", articulos="
-				+ articulos + ", zoologico=" + zoologico + "]";
+		return "Tienda [id=" + id + ", horaEntrada=" + horaEntrada + ", horaSalida=" + horaSalida + ", zoologico="
+				+ zoologico + "]";
 	}
 
 	//Get and Set
+	
 	public Integer getId() {
 		return id;
 	}
+
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
+
 	public LocalDateTime getHoraEntrada() {
 		return horaEntrada;
 	}
+
 
 	public void setHoraEntrada(LocalDateTime horaEntrada) {
 		this.horaEntrada = horaEntrada;
 	}
 
+
 	public LocalDateTime getHoraSalida() {
 		return horaSalida;
 	}
+
 
 	public void setHoraSalida(LocalDateTime horaSalida) {
 		this.horaSalida = horaSalida;
 	}
 
-	public Set<Articulo> getArticulos() {
-		return articulos;
-	}
-
-	public void setArticulos(Set<Articulo> articulos) {
-		this.articulos = articulos;
-	}
 
 	public Zoologico getZoologico() {
 		return zoologico;
 	}
+
 
 	public void setZoologico(Zoologico zoologico) {
 		this.zoologico = zoologico;
