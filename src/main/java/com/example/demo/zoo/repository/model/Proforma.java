@@ -16,63 +16,51 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Component
-@Table(name = "nota_venta",schema = "public")
+@Table(name = "proforma",schema = "public")
 @Entity
-public class NotaVenta {
+public class Proforma {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_notaven")
-	@SequenceGenerator(name = "seq_notaven", sequenceName = "seq_notaven", allocationSize = 1)
-	@Column(name = "nove_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_proforma")
+	@SequenceGenerator(name = "seq_proforma", sequenceName = "seq_proforma", allocationSize = 1)
+	@Column(name = "prof_id")
 	private Integer id;
-	@Column(name = "nove_costo_unidad")
-	private BigDecimal costoUnidad;
-	@Column(name = "nove_costo_total")
-	private BigDecimal costoTotal;
+	@Column(name = "prof_subtotal")
+	private BigDecimal subtotal;
+	@Column(name = "prof_total")
+	private BigDecimal total;
 	
 	//RELACION CON ENTRADAS DE 1 A MUCHOS
-	//@OneToMany(mappedBy = "nota_venta", fetch = FetchType.LAZY)
-	//private List<Entrada> entradas;
+	
+	//@OneToMany(mappedBy = "prof_producto", fetch = FetchType.LAZY)
+	//private List<Producto> productos;
+	
+	//@OneToMany(mappedBy = "prof_factura", fetch = FetchType.LAZY)
+	//private List<Factura> facturas;
 
 	// set y get 
 	
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public BigDecimal getCostoUni() {
-		return costoUni;
+	public BigDecimal getSubtotal() {
+		return subtotal;
 	}
-
-	public void setCostoUni(BigDecimal costoUni) {
-		this.costoUni = costoUni;
+	public void setSubtotal(BigDecimal subtotal) {
+		this.subtotal = subtotal;
 	}
-
-	public BigDecimal getCostoTot() {
-		return costoTot;
+	public BigDecimal getTotal() {
+		return total;
 	}
-
-	public void setCostoTot(BigDecimal costoTot) {
-		this.costoTot = costoTot;
+	public void setTotal(BigDecimal total) {
+		this.total = total;
 	}
-/*
-	public List<Entrada> getEntradas() {
-		return entradas;
-	}
-
-	public void setEntradas(List<Entrada> entradas) {
-		this.entradas = entradas;
-	}
-*/
 	@Override
 	public String toString() {
-		return "NotaVenta [id=" + id + ", costoUni=" + costoUni + ", costoTot=" + costoTot + "]";
+		return "Proforma [id=" + id + ", subtotal=" + subtotal + ", total=" + total + "]";
 	}
-	
-
 	
 	
 

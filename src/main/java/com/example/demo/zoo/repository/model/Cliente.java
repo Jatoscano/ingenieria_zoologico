@@ -10,6 +10,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -36,8 +38,13 @@ public class Cliente {
 	
 	//RELACION CON ENTRADAS DE 1 A MUCHOS
 
-					@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
 	private List<Factura> facturas;
+	
+	
+	@ManyToOne()
+	@JoinColumn(name = "clien_id_cliente")
+	private Cliente cliente;
 	
 	//set y get
 
