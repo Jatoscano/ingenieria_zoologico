@@ -9,8 +9,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -19,7 +19,7 @@ import jakarta.persistence.Table;
 public class Empleado {
 	
 	@Id
-	@GeneratedValue(generator = "seq_empleado" , strategy =  GenerationType.SEQUENCE.SEQUENCE)
+	@GeneratedValue(generator = "seq_empleado" , strategy =  GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "seq_empleado" ,sequenceName = "seq_empleado",allocationSize = 1)
 	@Column(name = "empl_id")
 	private Integer id;
@@ -52,13 +52,15 @@ public class Empleado {
 	private List<Animal> animales;
 	
 	@OneToMany(mappedBy = "empleado")
-	private List<AtencionMedica> atencionMedica;
+	private List<AtencionMedica> atencionesMedicas;
 	
 	
 	@OneToMany(mappedBy = "empleado")
-	@JoinColumn(name="empleado_id_contrato_guia")
-	private List<Guia>contrato_guia;
+	private List<Guia> contrato_guia;
 	
+	@ManyToOne
+	@JoinColumn(name = "empl_id_zoologico")
+	private Zoologico zoologico;
 	
 
 	public Integer getId() {
@@ -133,11 +135,5 @@ public class Empleado {
 		this.observacion = observacion;
 	}
 
-	public List<AtencionMedica> getAtencionMedica() {
-		return atencionMedica;
-	}
 
-	public void setAtencionMedica(List<AtencionMedica> atencionMedica) {
-		this.atencionMedica = atencionMedica;
-	}
 }

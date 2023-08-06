@@ -38,8 +38,8 @@ public class Proveedor {
 	
 	
 	@ManyToMany()
-	@JoinTable(name = "proveedor_aldi", joinColumns = @JoinColumn(name="prov_id"), inverseJoinColumns = @JoinColumn(name="aldi_id") )
-	private List<AlimentoDisponible> alimentos;
+	@JoinTable(name = "proveedor_aldi", joinColumns = @JoinColumn(name="pral_id_proveedor"), inverseJoinColumns = @JoinColumn(name="pral_id_alimento_disponible") )
+	private List<AlimentoDisponible> alimentosDisponibles;
 
 
 	
@@ -94,14 +94,7 @@ public class Proveedor {
 	}
 
 
-	public List<AlimentoDisponible> getAlimentos() {
-		return alimentos;
-	}
 
-
-	public void setAlimentos(List<AlimentoDisponible> alimentos) {
-		this.alimentos = alimentos;
-	}
 	
 	
 	
