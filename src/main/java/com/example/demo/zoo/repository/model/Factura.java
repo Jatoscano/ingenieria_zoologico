@@ -35,7 +35,7 @@ public class Factura {
 	//RELACION CON ENTRADAS DE MUCHOS A 1 CON CLIENTE
 
 	@OneToMany(mappedBy = "factura")
-	private List<Detalle> detalles;
+	//private List<Detalle> detalles;
 	
 	@ManyToOne()
 	@JoinColumn(name = "fact_id_cliente")
