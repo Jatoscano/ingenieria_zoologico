@@ -30,13 +30,21 @@ public class Proforma {
 	private BigDecimal total;
 	
 	//RELACION CON ENTRADAS DE 1 A MUCHOS
+<<<<<<< HEAD
 	
 	//@OneToMany(mappedBy = "prof_producto", fetch = FetchType.LAZY)
 	//private List<Producto> productos;
 	
 	//@OneToMany(mappedBy = "prof_factura", fetch = FetchType.LAZY)
 	//private List<Factura> facturas;
+=======
+	@OneToMany(mappedBy = "notaVenta", fetch = FetchType.LAZY)
+	private List<Entrada> entradas;
+>>>>>>> dfea0f92630021115872f65642f7c1c3ca1de33a
 
+	@OneToMany(mappedBy = "notaVenta", fetch = FetchType.LAZY)
+	private List<Guia> guias;
+	
 	// set y get 
 	
 	public Integer getId() {
@@ -45,6 +53,7 @@ public class Proforma {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+<<<<<<< HEAD
 	public BigDecimal getSubtotal() {
 		return subtotal;
 	}
@@ -53,10 +62,32 @@ public class Proforma {
 	}
 	public BigDecimal getTotal() {
 		return total;
+=======
+
+	public BigDecimal getCostoUnidad() {
+		return costoUnidad;
+	}
+
+	public void setCostoUnidad(BigDecimal costoUnidad) {
+		this.costoUnidad = costoUnidad;
+	}
+
+	public BigDecimal getCostoTotal() {
+		return costoTotal;
+	}
+
+	public void setCostoTotal(BigDecimal costoTotal) {
+		this.costoTotal = costoTotal;
+	}
+
+	public List<Entrada> getEntradas() {
+		return entradas;
+>>>>>>> dfea0f92630021115872f65642f7c1c3ca1de33a
 	}
 	public void setTotal(BigDecimal total) {
 		this.total = total;
 	}
+<<<<<<< HEAD
 	@Override
 	public String toString() {
 		return "Proforma [id=" + id + ", subtotal=" + subtotal + ", total=" + total + "]";
@@ -64,4 +95,14 @@ public class Proforma {
 	
 	
 
+=======
+
+	@Override
+	public String toString() {
+		return "NotaVenta [id=" + id + ", costoUnidad=" + costoUnidad + ", costoTotal=" + costoTotal + ", entradas="
+				+ entradas + "]";
+	}
+
+	
+>>>>>>> dfea0f92630021115872f65642f7c1c3ca1de33a
 }
