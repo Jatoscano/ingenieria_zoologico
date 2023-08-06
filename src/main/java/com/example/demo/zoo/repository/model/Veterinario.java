@@ -15,41 +15,33 @@ import jakarta.persistence.Table;
 @Table(name = "veterinario")
 @Entity
 public class Veterinario {
-	
-	//@GeneratedValue(generator = "seq_veterinario" , strategy =  GenerationType.SEQUENCE)
-	//@SequenceGenerator(name = "seq_veterinario" ,sequenceName = "seq_veterinario",allocationSize = 1)
+
+	@GeneratedValue(generator = "seq_veterinario", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "seq_veterinario", sequenceName = "seq_veterinario", allocationSize = 1)
 	@Column(name = "vete_id")
 	@Id
 	private Integer id;
-	
-	
+
 	@Column(name = "vete_nombre")
 	private String nombre;
-	
-	
+
 	@Column(name = "vete_apellido")
 	private String apellido;
-	
-	
+
 	@Column(name = "vete_cedula_pasaporte")
 	private String cedula_pasaporte;
-	
-	
+
 	@Column(name = "vete_fechaNacimiento")
 	private LocalDateTime fechaNacimiento;
-	
-	
+
 	@Column(name = "vete_direccion")
 	private String direccion;
-	
-	
+
 	@Column(name = "vete_especialidad")
 	private String especialidad;
-	
-	@OneToMany(mappedBy = "veterinario" )
-	private List<AtencionMedica> atencionMedica;
-	
-	
+
+	@OneToMany(mappedBy = "veterinario")
+	private List<AtencionMedica> atencionesMedicas;
 
 	public Integer getId() {
 		return id;
@@ -107,11 +99,5 @@ public class Veterinario {
 		this.especialidad = especialidad;
 	}
 
-	public List<AtencionMedica> getAtencionMedica() {
-		return atencionMedica;
-	}
 
-	public void setAtencionMedica(List<AtencionMedica> atencionMedica) {
-		this.atencionMedica = atencionMedica;
-	}
 }
