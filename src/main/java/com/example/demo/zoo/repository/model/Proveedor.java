@@ -1,0 +1,102 @@
+package com.example.demo.zoo.repository.model;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity(name = "proveedor")
+@Table
+public class Proveedor {
+	
+	@Id
+	@SequenceGenerator(allocationSize = 1, name = "seq_prov",sequenceName = "seq_prov")
+	@GeneratedValue(generator = "seq_prov",strategy = GenerationType.SEQUENCE)
+	@Column(name = "prov_id")
+	private Integer id;
+	
+	@Column(name = "prov_nombre_completo")
+	private String nombreCompleto;
+	
+	@Column(name = "prov_tiempo_entrega")
+	private LocalDateTime tiempoEntrega;
+	
+	@Column(name = "prov_celular")
+	private String celular;
+	
+	@Column(name = "prov_email")
+	private String email;
+	
+	
+	@ManyToMany()
+	@JoinTable(name = "proveedor_aldi", joinColumns = @JoinColumn(name="pral_id_proveedor"), inverseJoinColumns = @JoinColumn(name="pral_id_alimento_disponible") )
+	private List<AlimentoDisponible> alimentosDisponibles;
+
+
+	
+	//GET&SET
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	public String getNombreCompleto() {
+		return nombreCompleto;
+	}
+
+
+	public void setNombreCompleto(String nombreCompleto) {
+		this.nombreCompleto = nombreCompleto;
+	}
+
+
+	public LocalDateTime getTiempoEntrega() {
+		return tiempoEntrega;
+	}
+
+
+	public void setTiempoEntrega(LocalDateTime tiempoEntrega) {
+		this.tiempoEntrega = tiempoEntrega;
+	}
+
+
+	public String getCelular() {
+		return celular;
+	}
+
+
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+
+	
+	
+	
+
+}
