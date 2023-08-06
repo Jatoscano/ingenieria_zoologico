@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
 @Component
 @Table(name = "nota_venta",schema = "public")
 @Entity
-public class NotaVenta {
+public class Proforma {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_notaven")
 	@SequenceGenerator(name = "seq_notaven", sequenceName = "seq_notaven", allocationSize = 1)
@@ -33,9 +33,6 @@ public class NotaVenta {
 	@OneToMany(mappedBy = "notaVenta", fetch = FetchType.LAZY)
 	private List<Entrada> entradas;
 
-	@OneToMany(mappedBy = "notaVenta", fetch = FetchType.LAZY)
-	private List<Guia> guias;
-	
 	// set y get 
 	
 	public Integer getId() {
