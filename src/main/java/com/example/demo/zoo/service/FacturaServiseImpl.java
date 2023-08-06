@@ -3,8 +3,8 @@ package com.example.demo.zoo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.repository.IFacturaRepository;
-import com.example.demo.repository.modelo.Factura;
+import com.example.demo.zoo.repository.IFacturaRepository;
+import com.example.demo.zoo.repository.model.Factura;
 
 @Service
 public class FacturaServiseImpl implements IFacturaService{
