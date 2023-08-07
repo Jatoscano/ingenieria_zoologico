@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -37,9 +38,9 @@ public class Entrada {
 	private Zoologico zoologico;
 
 	
-	@ManyToOne
-	@JoinColumn(name = "entr_id_nota_venta")
-	private NotaVenta notaVenta;
+	@OneToOne
+	@JoinColumn(name = "entr_id_cliente")
+	private Cliente cliente;
 	
 	
 	//Gets y sets

@@ -31,14 +31,11 @@ public class Guia {
 	@Column(name = "guia_costo")
 	private BigDecimal costo;
 	
-	@ManyToOne
-	@JoinColumn(name = "guia_id_empleado")
-	private Empleado empleado;
+
 	
 	
-	@ManyToOne
-	@JoinColumn(name = "guia_id_nota_venta")
-	private NotaVenta notaVenta;
+
+
 
 	
 	//gets  y sets

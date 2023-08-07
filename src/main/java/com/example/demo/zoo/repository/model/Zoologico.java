@@ -1,4 +1,5 @@
 package com.example.demo.zoo.repository.model;
+
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -27,14 +28,19 @@ public class Zoologico {
 	private String tipo;
 
 	@OneToMany(mappedBy = "zoologico")
-	private List<Entrada> entradas;
-	
+	private List<Animal> animals;
+
+	@OneToMany(mappedBy = "zoologico")
+	private List<Cliente> clientes;
+
+	@OneToMany(mappedBy = "zoologico")
+	private List<Tienda> tiendas;
+
 	@OneToMany(mappedBy = "zoologico")
 	private List<Empleado> empleados;
 
 	@OneToMany(mappedBy = "zoologico")
-	private List<Tienda> tiendas;
-	
+	private List<Entrada> entradas;
 
 	public Integer getId() {
 		return id;
@@ -84,11 +90,42 @@ public class Zoologico {
 		this.entradas = entradas;
 	}
 
+	public List<Animal> getAnimals() {
+		return animals;
+	}
+
+	public void setAnimals(List<Animal> animals) {
+		this.animals = animals;
+	}
+
+	public List<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+
+	public List<Tienda> getTiendas() {
+		return tiendas;
+	}
+
+	public void setTiendas(List<Tienda> tiendas) {
+		this.tiendas = tiendas;
+	}
+
+	public List<Empleado> getEmpleados() {
+		return empleados;
+	}
+
+	public void setEmpleados(List<Empleado> empleados) {
+		this.empleados = empleados;
+	}
+
 	@Override
 	public String toString() {
 		return "Zoologico [id=" + id + ", ruc=" + ruc + ", nombre=" + nombre + ", direccion=" + direccion + ", tipo="
 				+ tipo + "]";
 	}
-	
 
 }

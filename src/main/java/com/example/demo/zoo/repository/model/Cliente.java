@@ -10,12 +10,15 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Component
-@Table(name = "cliente",schema = "public")
+@Table(name = "cliente", schema = "public")
 @Entity
 public class Cliente {
 	@Id
@@ -33,14 +36,20 @@ public class Cliente {
 	private String direccion;
 	@Column(name = "clie_email")
 	private String email;
-	
-	//RELACION CON ENTRADAS DE 1 A MUCHOS
 
-					@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+	// RELACION CON ENTRADAS DE 1 A MUCHOS
+
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
 	private List<Factura> facturas;
-	
-	//set y get
 
+	@OneToOne(mappedBy = "cliente")
+	private Entrada entrada;
+	
+	@ManyToOne
+	@JoinColumn(name = "clie_id_zoologico")
+	private Zoologico zoologico;
+
+	// set y get
 
 	public Integer getId() {
 		return id;
@@ -103,8 +112,5 @@ public class Cliente {
 		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula
 				+ ", direccion=" + direccion + ", email=" + email + ", facturas=" + facturas + "]";
 	}
-	
-		
-	
-	
+
 }
