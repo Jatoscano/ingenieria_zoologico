@@ -55,9 +55,6 @@ public class Empleado {
 	private List<AtencionMedica> atencionesMedicas;
 	
 	
-	@OneToMany(mappedBy = "empleado")
-	private List<Guia> contrato_guia;
-	
 	@ManyToOne
 	@JoinColumn(name = "empl_id_zoologico")
 	private Zoologico zoologico;

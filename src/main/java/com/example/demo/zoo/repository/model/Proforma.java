@@ -41,7 +41,11 @@ public class Proforma {
 
 	@OneToMany(mappedBy = "proforma", fetch = FetchType.LAZY)
 	private List<Guia> guias;
+
 	
+	@OneToOne(mappedBy = "proforma", fetch = FetchType.LAZY)
+	private Factura factura;
+
 	// set y get 
 
 
@@ -65,22 +69,30 @@ public class Proforma {
 		return total;
 	}
 
-	public void setTotal(BigDecimal total) {
-		this.total = total;
+	public void setTotal(BigDecimal total) {		this.total = total;
 	}
 
-	public List<Guia> getGuias() {
-		return guias;
+	public List<Producto> getProductos() {
+		return productos;
 	}
 
-	public void setGuias(List<Guia> guias) {
-		this.guias = guias;
+	public void setProductos(List<Producto> productos) {
+		this.productos = productos;
+	}
+
+	public Factura getFactura() {
+		return factura;
+	}
+
+	public void setFactura(Factura factura) {
+		this.factura = factura;
+
 	}
 
 	@Override
 	public String toString() {
-		return "Proforma [id=" + id + ", subtotal=" + subtotal + ", total=" + total + ", guias=" + guias + "]";
+		return "Proforma [id=" + id + ", costoUnidad=" + costoUnidad + ", costoTotal=" + costoTotal + ", productos="
+				+ productos + ", factura=" + factura + "]";
 	}
-	
 
 }

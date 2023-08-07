@@ -15,6 +15,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -36,8 +37,9 @@ public class Factura {
 	
 	//RELACION CON ENTRADAS DE MUCHOS A 1 CON CLIENTE
 
-	@OneToMany(mappedBy = "factura")
-	//private List<Detalle> detalles;
+	@OneToOne
+	@JoinColumn(name = "fact_id_proforma")
+	private Proforma proforma;
 	
 	@ManyToOne()
 	@JoinColumn(name = "fact_id_cliente")

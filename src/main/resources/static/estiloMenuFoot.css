@@ -1,0 +1,134 @@
+/*MENU*/
+
+
+nav {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px; 
+    font-family: Roboto ;
+
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+li {
+    position: relative;
+    padding: 10px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #ff4500;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    display: none;
+    padding: 10px;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    padding: 5px;
+}
+
+.submenu li a {
+    color: #fff;
+}
+
+.submenu li a:hover {
+    background-color: #555;
+}
+
+
+/*FOOT*/
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Estilos para los enlaces dentro del pie de página */
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el texto de derechos de autor o información adicional */
+.footer-info {
+    font-size: 14px;
+}
+
+/* Estilos para el área de iconos sociales */
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #ff4500;
+    color: #fff;
+}
+
+#fb  {
+
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png');
+    background-size: cover;
+}
+
+
+#tt  {
+
+    background-image: url('https://cdn.cms-twdigitalassets.com/content/dam/help-twitter/twitter_logo_blue.png.twimg.768.png');
+    background-size: cover;
+}
+
+#ig  {
+
+    background-image: url('https://icones.pro/wp-content/uploads/2021/02/instagram-logo-icone4.png');
+    background-size: cover;
+}
+
+
+#tk  {
+
+    background-image: url('https://img.freepik.com/vector-premium/circulo-logotipo-tiktok-logotipo-negro-redes-sociales_197792-4612.jpg');
+    background-size: cover;
+}

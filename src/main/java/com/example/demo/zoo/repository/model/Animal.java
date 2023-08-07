@@ -48,8 +48,7 @@ public class Animal {
 	@Column(name = "anim_observaciones")
 	private String observaciones;
 	
-	@ManyToMany(mappedBy = "animales")
-	private Set<Recinto> recintos;
+
 	
 	@OneToMany(mappedBy = "animal")
 	private List<AtencionMedica> atencionesMedicas;
@@ -58,7 +57,14 @@ public class Animal {
 	@JoinColumn(name = "anim_id_empleado")
 	private Empleado empleado;
 	
+	
+	@ManyToMany(mappedBy = "animales")
+	private Set<Producto> productos;
+	
 	//GET&SET
+	
+	
+	
 	public Integer getId() {
 		return id;
 	}
@@ -123,13 +129,7 @@ public class Animal {
 		this.observaciones = observaciones;
 	}
 
-	public Set<Recinto> getRecintos() {
-		return recintos;
-	}
 
-	public void setRecintos(Set<Recinto> recintos) {
-		this.recintos = recintos;
-	}
 	
 	
 	
