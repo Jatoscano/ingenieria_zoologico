@@ -14,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -55,6 +56,10 @@ public class Producto {
 	
 	@ManyToMany(mappedBy = "productos")
 	private Set<Proveedor> proveedores;
+	
+	@ManyToOne
+	@JoinColumn(name = "prod_id_proforma")
+	private Proforma proforma;
 
 	
 	
