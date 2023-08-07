@@ -12,11 +12,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-<<<<<<< HEAD
 import jakarta.persistence.OneToOne;
-=======
+
 import jakarta.persistence.OneToMany;
->>>>>>> dfea0f92630021115872f65642f7c1c3ca1de33a
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -25,8 +23,8 @@ import jakarta.persistence.Table;
 @Entity
 public class Factura {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_fact")
-	@SequenceGenerator(name = "seq_fact", sequenceName = "seq_fact", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_factura")
+	@SequenceGenerator(name = "seq_factura", sequenceName = "seq_factura", allocationSize = 1)
 	@Column(name = "fact_id")
 	private Integer id;
 	@Column(name = "fact_subtotal")
