@@ -48,9 +48,6 @@ public class Animal {
 	@Column(name = "anim_observaciones")
 	private String observaciones;
 	
-	@ManyToMany(mappedBy = "animales")
-	private Set<Recinto> recintos;
-	
 	@OneToMany(mappedBy = "animal")
 	private List<AtencionMedica> atencionesMedicas;
 	
@@ -126,17 +123,4 @@ public class Animal {
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
 	}
-
-	public Set<Recinto> getRecintos() {
-		return recintos;
-	}
-
-	public void setRecintos(Set<Recinto> recintos) {
-		this.recintos = recintos;
-	}
-	
-	
-	
-	
-
 }
