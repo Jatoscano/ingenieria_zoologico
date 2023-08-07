@@ -10,6 +10,8 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -36,75 +38,117 @@ public class Cliente {
 	
 	//RELACION CON ENTRADAS DE 1 A MUCHOS
 
-					@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
 	private List<Factura> facturas;
 	
-	//set y get
+	
+	@ManyToOne()
+	@JoinColumn(name = "clie_id_zoologico")
+	private Zoologico zoologico;
+	
+
+	@ManyToOne()
+	@JoinColumn(name = "clie_id_tienda")
+	private Tienda tienda;
 
 
 	public Integer getId() {
 		return id;
 	}
 
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 
 	public String getNombre() {
 		return nombre;
 	}
 
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 
 	public String getApellido() {
 		return apellido;
 	}
 
+
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+
 
 	public String getCedula() {
 		return cedula;
 	}
 
+
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
+
 
 	public String getDireccion() {
 		return direccion;
 	}
 
+
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+
 
 	public String getEmail() {
 		return email;
 	}
 
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 
 	public List<Factura> getFacturas() {
 		return facturas;
 	}
 
+
 	public void setFacturas(List<Factura> facturas) {
 		this.facturas = facturas;
 	}
 
+
+	public Zoologico getZoologico() {
+		return zoologico;
+	}
+
+
+	public void setZoologico(Zoologico zoologico) {
+		this.zoologico = zoologico;
+	}
+
+
+	public Tienda getTienda() {
+		return tienda;
+	}
+
+
+	public void setTienda(Tienda tienda) {
+		this.tienda = tienda;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula
-				+ ", direccion=" + direccion + ", email=" + email + ", facturas=" + facturas + "]";
+				+ ", direccion=" + direccion + ", email=" + email + ", facturas=" + facturas + ", zoologico="
+				+ zoologico + ", tienda=" + tienda + "]";
 	}
 	
-		
-	
+
 	
 }

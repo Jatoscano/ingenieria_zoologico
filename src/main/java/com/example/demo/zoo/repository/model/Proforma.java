@@ -25,20 +25,30 @@ public class Proforma {
 	@SequenceGenerator(name = "seq_proforma", sequenceName = "seq_proforma", allocationSize = 1)
 	@Column(name = "prof_id")
 	private Integer id;
-	@Column(name = "prof_costo_unidad")
-	private BigDecimal costoUnidad;
-	@Column(name = "prof_costo_total")
-	private BigDecimal costoTotal;
+	@Column(name = "prof_subtotal")
+	private BigDecimal subtotal;
+	@Column(name = "prof_total")
+	private BigDecimal total;
 	
 	//RELACION CON ENTRADAS DE 1 A MUCHOS
+	
+	//@OneToMany(mappedBy = "proforma", fetch = FetchType.LAZY)
+	//private List<Producto> productos;
+	
+	@OneToOne(mappedBy = "proforma", fetch = FetchType.LAZY)
+	private List<Factura> facturas;
+
+
 	@OneToMany(mappedBy = "proforma", fetch = FetchType.LAZY)
-	private List<Producto> productos;
+	private List<Guia> guias;
+
 	
 	@OneToOne(mappedBy = "proforma", fetch = FetchType.LAZY)
 	private Factura factura;
 
 	// set y get 
-	
+
+
 	public Integer getId() {
 		return id;
 	}
@@ -47,20 +57,19 @@ public class Proforma {
 		this.id = id;
 	}
 
-	public BigDecimal getCostoUnidad() {
-		return costoUnidad;
+	public BigDecimal getSubtotal() {
+		return subtotal;
 	}
 
-	public void setCostoUnidad(BigDecimal costoUnidad) {
-		this.costoUnidad = costoUnidad;
+	public void setSubtotal(BigDecimal subtotal) {
+		this.subtotal = subtotal;
 	}
 
-	public BigDecimal getCostoTotal() {
-		return costoTotal;
+	public BigDecimal getTotal() {
+		return total;
 	}
 
-	public void setCostoTotal(BigDecimal costoTotal) {
-		this.costoTotal = costoTotal;
+	public void setTotal(BigDecimal total) {		this.total = total;
 	}
 
 	public List<Producto> getProductos() {
@@ -77,6 +86,7 @@ public class Proforma {
 
 	public void setFactura(Factura factura) {
 		this.factura = factura;
+
 	}
 
 	@Override
