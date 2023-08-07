@@ -1,7 +1,6 @@
 package com.example.demo.zoo.repository.model;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,7 +9,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -48,18 +46,20 @@ public class Empleado {
 	@Column(name = "empl_observacion")
 	private String observacion;
 	
-	@OneToMany(mappedBy = "empleado")
-	private List<Animal> animales;
-	
-	@OneToMany(mappedBy = "empleado")
-	private List<AtencionMedica> atencionesMedicas;
-	
-	
 	@ManyToOne
 	@JoinColumn(name = "empl_id_zoologico")
 	private Zoologico zoologico;
-	
 
+	//To String
+	@Override
+	public String toString() {
+		return "Empleado [id=" + id + ", cedula_pasaporte=" + cedula_pasaporte + ", nombre=" + nombre + ", apellido="
+				+ apellido + ", fechaNacimiento=" + fechaNacimiento + ", fechaContrato=" + fechaContrato
+				+ ", fechaRenovacion=" + fechaRenovacion + ", tipo=" + tipo + ", observacion=" + observacion
+				+ ", zoologico=" + zoologico + "]";
+	}
+
+	//Get and Set
 	public Integer getId() {
 		return id;
 	}
@@ -132,5 +132,12 @@ public class Empleado {
 		this.observacion = observacion;
 	}
 
+	public Zoologico getZoologico() {
+		return zoologico;
+	}
 
+	public void setZoologico(Zoologico zoologico) {
+		this.zoologico = zoologico;
+	}
+	
 }

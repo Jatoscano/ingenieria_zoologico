@@ -54,8 +54,8 @@ public class Animal {
 	private List<AtencionMedica> atencionesMedicas;
 	
 	@ManyToOne
-	@JoinColumn(name = "anim_id_empleado")
-	private Empleado empleado;
+	@JoinColumn(name = "anim_id_zoologico")
+	private Zoologico zoologico;
 	
 	
 	@ManyToMany(mappedBy = "animales")

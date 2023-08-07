@@ -1,6 +1,7 @@
 package com.example.demo.zoo.repository.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,8 +9,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -30,27 +31,34 @@ public class Tienda {
 	private LocalDateTime horaSalida;
 	
 	//Relacion Tienda - Producto
-	@ManyToMany(mappedBy = "tiendas")
-	//private List<Producto> productos;
+	@OneToMany(mappedBy = "tienda")
+	private List<Producto> productos;
 	
 	//Relacion Zoologico - Tienda
 	@ManyToOne
 	@JoinColumn(name = "tien_id_zoologico")
 	private Zoologico zoologico;
+	
+	//Relacion Tienda - Cliente
+	@OneToMany(mappedBy = "tienda")
+	private List<Cliente> clientes;
+	
 
 	
 	//To String
+	
 	@Override
 	public String toString() {
-		return "Tienda [id=" + id + ", horaEntrada=" + horaEntrada + ", horaSalida=" + horaSalida + ", zoologico="
-				+ zoologico + "]";
+		return "Tienda [id=" + id + ", horaEntrada=" + horaEntrada + ", horaSalida=" + horaSalida + ", productos="
+				+ productos + ", zoologico=" + zoologico + ", clientes=" + clientes + "]";
 	}
-
-	//Get and Set
 	
+	//Get and Set
+
 	public Integer getId() {
 		return id;
 	}
+
 
 
 	public void setId(Integer id) {
@@ -58,9 +66,11 @@ public class Tienda {
 	}
 
 
+
 	public LocalDateTime getHoraEntrada() {
 		return horaEntrada;
 	}
+
 
 
 	public void setHoraEntrada(LocalDateTime horaEntrada) {
@@ -68,9 +78,11 @@ public class Tienda {
 	}
 
 
+
 	public LocalDateTime getHoraSalida() {
 		return horaSalida;
 	}
+
 
 
 	public void setHoraSalida(LocalDateTime horaSalida) {
@@ -78,12 +90,38 @@ public class Tienda {
 	}
 
 
+
+	public List<Producto> getProductos() {
+		return productos;
+	}
+
+
+
+	public void setProductos(List<Producto> productos) {
+		this.productos = productos;
+	}
+
+
+
 	public Zoologico getZoologico() {
 		return zoologico;
 	}
 
 
+
 	public void setZoologico(Zoologico zoologico) {
 		this.zoologico = zoologico;
+	}
+
+
+
+	public List<Cliente> getClientes() {
+		return clientes;
+	}
+
+
+
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
 	}
 }

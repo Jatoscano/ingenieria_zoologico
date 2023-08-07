@@ -1,7 +1,6 @@
 package com.example.demo.zoo.repository.model;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -12,9 +11,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
-
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -44,10 +40,6 @@ public class Factura {
 	@ManyToOne()
 	@JoinColumn(name = "fact_id_cliente")
 	private Cliente cliente;
-	
-	@OneToOne
-	@JoinColumn(name="fact_id_proforma")
-	private Proforma proforma;
 	
 	// GET Y SET
 

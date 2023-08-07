@@ -32,16 +32,8 @@ public class Proforma {
 	
 	//RELACION CON ENTRADAS DE 1 A MUCHOS
 	
-	//@OneToMany(mappedBy = "proforma", fetch = FetchType.LAZY)
-	//private List<Producto> productos;
-	
-	@OneToOne(mappedBy = "proforma", fetch = FetchType.LAZY)
-	private List<Factura> facturas;
-
-
 	@OneToMany(mappedBy = "proforma", fetch = FetchType.LAZY)
-	private List<Guia> guias;
-
+	private List<Producto> productos;
 	
 	@OneToOne(mappedBy = "proforma", fetch = FetchType.LAZY)
 	private Factura factura;
@@ -91,8 +83,7 @@ public class Proforma {
 
 	@Override
 	public String toString() {
-		return "Proforma [id=" + id + ", costoUnidad=" + costoUnidad + ", costoTotal=" + costoTotal + ", productos="
-				+ productos + ", factura=" + factura + "]";
+		return "Proforma [id=" + id + ", subtotal=" + subtotal + ", total=" + total + ", productos=" + productos
+				+ ", factura=" + factura + "]";
 	}
-
 }
