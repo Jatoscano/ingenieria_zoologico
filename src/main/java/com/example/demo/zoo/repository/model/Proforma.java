@@ -12,26 +12,30 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Component
-@Table(name = "nota_venta",schema = "public")
+@Table(name = "proforma",schema = "public")
 @Entity
 public class Proforma {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_notaven")
-	@SequenceGenerator(name = "seq_notaven", sequenceName = "seq_notaven", allocationSize = 1)
-	@Column(name = "nove_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_proforma")
+	@SequenceGenerator(name = "seq_proforma", sequenceName = "seq_proforma", allocationSize = 1)
+	@Column(name = "prof_id")
 	private Integer id;
-	@Column(name = "nove_costo_unidad")
+	@Column(name = "prof_costo_unidad")
 	private BigDecimal costoUnidad;
-	@Column(name = "nove_costo_total")
+	@Column(name = "prof_costo_total")
 	private BigDecimal costoTotal;
 	
 	//RELACION CON ENTRADAS DE 1 A MUCHOS
-	@OneToMany(mappedBy = "notaVenta", fetch = FetchType.LAZY)
-	private List<Entrada> entradas;
+	@OneToMany(mappedBy = "proforma", fetch = FetchType.LAZY)
+	private List<Producto> productos;
+	
+	@OneToOne(mappedBy = "proforma", fetch = FetchType.LAZY)
+	private Factura factura;
 
 	// set y get 
 	
@@ -59,19 +63,26 @@ public class Proforma {
 		this.costoTotal = costoTotal;
 	}
 
-	public List<Entrada> getEntradas() {
-		return entradas;
+	public List<Producto> getProductos() {
+		return productos;
 	}
 
-	public void setEntradas(List<Entrada> entradas) {
-		this.entradas = entradas;
+	public void setProductos(List<Producto> productos) {
+		this.productos = productos;
+	}
+
+	public Factura getFactura() {
+		return factura;
+	}
+
+	public void setFactura(Factura factura) {
+		this.factura = factura;
 	}
 
 	@Override
 	public String toString() {
-		return "NotaVenta [id=" + id + ", costoUnidad=" + costoUnidad + ", costoTotal=" + costoTotal + ", entradas="
-				+ entradas + "]";
+		return "Proforma [id=" + id + ", costoUnidad=" + costoUnidad + ", costoTotal=" + costoTotal + ", productos="
+				+ productos + ", factura=" + factura + "]";
 	}
 
-	
 }
