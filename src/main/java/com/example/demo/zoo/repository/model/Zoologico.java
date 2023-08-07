@@ -27,6 +27,9 @@ public class Zoologico {
 	private String tipo;
 
 	@OneToMany(mappedBy = "zoologico")
+	private List<Animal> animales;
+	
+	@OneToMany(mappedBy = "zoologico")
 	private List<Entrada> entradas;
 	
 	@OneToMany(mappedBy = "zoologico")
@@ -35,6 +38,8 @@ public class Zoologico {
 	@OneToMany(mappedBy = "zoologico")
 	private List<Tienda> tiendas;
 	
+	@OneToMany(mappedBy = "zoologico")
+	private List<Cliente> clientes;
 
 	public Integer getId() {
 		return id;
@@ -76,6 +81,14 @@ public class Zoologico {
 		this.tipo = tipo;
 	}
 
+	public List<Animal> getAnimales() {
+		return animales;
+	}
+
+	public void setAnimales(List<Animal> animales) {
+		this.animales = animales;
+	}
+
 	public List<Entrada> getEntradas() {
 		return entradas;
 	}
@@ -84,11 +97,35 @@ public class Zoologico {
 		this.entradas = entradas;
 	}
 
+	public List<Empleado> getEmpleados() {
+		return empleados;
+	}
+
+	public void setEmpleados(List<Empleado> empleados) {
+		this.empleados = empleados;
+	}
+
+	public List<Tienda> getTiendas() {
+		return tiendas;
+	}
+
+	public void setTiendas(List<Tienda> tiendas) {
+		this.tiendas = tiendas;
+	}
+
+	public List<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+
 	@Override
 	public String toString() {
 		return "Zoologico [id=" + id + ", ruc=" + ruc + ", nombre=" + nombre + ", direccion=" + direccion + ", tipo="
-				+ tipo + "]";
+				+ tipo + ", animales=" + animales + ", entradas=" + entradas + ", empleados=" + empleados + ", tiendas="
+				+ tiendas + ", clientes=" + clientes + "]";
 	}
-	
 
 }
