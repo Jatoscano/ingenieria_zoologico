@@ -38,34 +38,20 @@ public class Proveedor {
 	private String email;
 	
 	
-	
-	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "proveedor_prod", joinColumns = @JoinColumn(name="provprod_id_proveedor"), inverseJoinColumns = @JoinColumn(name="provprod_id_producto") )
 	private List<Producto> productos;
 
-
-	
 	@Override
 	public String toString() {
 		return "Proveedor [id=" + id + ", nombreCompleto=" + nombreCompleto + ", tiempoEntrega=" + tiempoEntrega
-				+ ", celular=" + celular + ", email=" + email + "]";
+				+ ", celular=" + celular + ", email=" + email + ", productos=" + productos + "]";
 	}
-
 
 	//GET&SET
+	
 	public Integer getId() {
 		return id;
-	}
-
-
-	public List<Producto> getProductos() {
-		return productos;
-	}
-
-
-	public void setProductos(List<Producto> productos) {
-		this.productos = productos;
 	}
 
 
@@ -114,9 +100,12 @@ public class Proveedor {
 	}
 
 
+	public List<Producto> getProductos() {
+		return productos;
+	}
 
-	
-	
-	
 
+	public void setProductos(List<Producto> productos) {
+		this.productos = productos;
+	}
 }

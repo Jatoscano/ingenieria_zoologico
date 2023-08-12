@@ -42,7 +42,15 @@ public class Veterinario {
 
 	@OneToMany(mappedBy = "veterinario")
 	private List<AtencionMedica> atencionesMedicas;
+	
+	@Override
+	public String toString() {
+		return "Veterinario [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula_pasaporte="
+				+ cedula_pasaporte + ", fechaNacimiento=" + fechaNacimiento + ", direccion=" + direccion
+				+ ", especialidad=" + especialidad + ", atencionesMedicas=" + atencionesMedicas + "]";
+	}
 
+	//Get and  Set
 	public Integer getId() {
 		return id;
 	}
@@ -99,5 +107,11 @@ public class Veterinario {
 		this.especialidad = especialidad;
 	}
 
+	public List<AtencionMedica> getAtencionesMedicas() {
+		return atencionesMedicas;
+	}
 
+	public void setAtencionesMedicas(List<AtencionMedica> atencionesMedicas) {
+		this.atencionesMedicas = atencionesMedicas;
+	}
 }

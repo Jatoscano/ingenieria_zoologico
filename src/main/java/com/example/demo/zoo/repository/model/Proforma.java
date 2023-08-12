@@ -25,6 +25,8 @@ public class Proforma {
 	@SequenceGenerator(name = "seq_proforma", sequenceName = "seq_proforma", allocationSize = 1)
 	@Column(name = "prof_id")
 	private Integer id;
+	@Column(name = "prof_cantidad")
+	private Integer cantidad;
 	@Column(name = "prof_subtotal")
 	private BigDecimal subtotal;
 	@Column(name = "prof_total")
@@ -39,14 +41,21 @@ public class Proforma {
 	private Factura factura;
 
 	// set y get 
-
-
+	
 	public Integer getId() {
 		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
 	}
 
 	public BigDecimal getSubtotal() {
@@ -61,7 +70,8 @@ public class Proforma {
 		return total;
 	}
 
-	public void setTotal(BigDecimal total) {		this.total = total;
+	public void setTotal(BigDecimal total) {
+		this.total = total;
 	}
 
 	public List<Producto> getProductos() {
@@ -78,12 +88,11 @@ public class Proforma {
 
 	public void setFactura(Factura factura) {
 		this.factura = factura;
-
 	}
 
 	@Override
 	public String toString() {
-		return "Proforma [id=" + id + ", subtotal=" + subtotal + ", total=" + total + ", productos=" + productos
-				+ ", factura=" + factura + "]";
+		return "Proforma [id=" + id + ", cantidad=" + cantidad + ", subtotal=" + subtotal + ", total=" + total
+				+ ", productos=" + productos + ", factura=" + factura + "]";
 	}
 }

@@ -21,12 +21,6 @@ import jakarta.persistence.Table;
 @Entity
 public class Producto {
 	
-	@Override
-	public String toString() {
-		return "Producto [id=" + id + ", nombre=" + nombre + ", cantidad=" + cantidad + ", fechaCaducidad="
-				+ fechaCaducidad + ", costo=" + costo + ", tipo=" + tipo + "]";
-	}
-
 	@Id
 	@SequenceGenerator(allocationSize = 1, name = "seq_prod",sequenceName = "seq_prod")
 	@GeneratedValue(generator = "seq_prod", strategy = GenerationType.SEQUENCE)
@@ -64,8 +58,6 @@ public class Producto {
 	@JoinColumn(name = "prod_id_tienda")
 	private Tienda tienda;
 
-	
-	
 	 public Producto() {
 	        // Inicializar el conjunto de proveedores en el constructor
 	        proveedores = new HashSet<>();
@@ -77,118 +69,79 @@ public class Producto {
 		return id;
 	}
 
-
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-
 
 	public String getNombre() {
 		return nombre;
 	}
 
-
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-
 
 	public Integer getCantidad() {
 		return cantidad;
 	}
 
-
-
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
-
-
 
 	public LocalDateTime getFechaCaducidad() {
 		return fechaCaducidad;
 	}
 
-
-
 	public void setFechaCaducidad(LocalDateTime fechaCaducidad) {
 		this.fechaCaducidad = fechaCaducidad;
 	}
-
-
 
 	public BigDecimal getCosto() {
 		return costo;
 	}
 
-
-
 	public void setCosto(BigDecimal costo) {
 		this.costo = costo;
 	}
-
-
 
 	public String getTipo() {
 		return tipo;
 	}
 
-
-
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-
-
 
 	public Set<Animal> getAnimales() {
 		return animales;
 	}
 
-
-
 	public void setAnimales(Set<Animal> animales) {
 		this.animales = animales;
 	}
-
-
 
 	public Set<Proveedor> getProveedores() {
 		return proveedores;
 	}
 
-
-
 	public void setProveedores(Set<Proveedor> proveedores) {
 		this.proveedores = proveedores;
 	}
-
-
 
 	public Proforma getProforma() {
 		return proforma;
 	}
 
-
-
 	public void setProforma(Proforma proforma) {
 		this.proforma = proforma;
 	}
-
-
 
 	public Tienda getTienda() {
 		return tienda;
 	}
 
-
-
 	public void setTienda(Tienda tienda) {
 		this.tienda = tienda;
-	}
-	
+	}	
 }

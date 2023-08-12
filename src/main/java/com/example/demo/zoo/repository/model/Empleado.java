@@ -45,7 +45,7 @@ public class Empleado {
 	
 	@Column(name = "empl_observacion")
 	private String observacion;
-	
+		
 	@ManyToOne
 	@JoinColumn(name = "empl_id_zoologico")
 	private Zoologico zoologico;
