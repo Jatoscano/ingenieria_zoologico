@@ -6,8 +6,11 @@ import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Component
@@ -16,6 +19,8 @@ import jakarta.persistence.Table;
 public class Zoologico {
 
 	@Id
+	@SequenceGenerator(allocationSize = 1,name = "seq_zoologico",sequenceName = "seq_zoologico")
+	@GeneratedValue(generator = "seq_zoologico", strategy = GenerationType.SEQUENCE)
 	@Column(name = "zool_id")
 	private Integer id;
 	@Column(name = "zool_ruc")
@@ -28,20 +33,21 @@ public class Zoologico {
 	private String tipo;
 
 	@OneToMany(mappedBy = "zoologico")
-	private List<Animal> animals;
+	private List<Animal> animales;
 
 	@OneToMany(mappedBy = "zoologico")
 	private List<Cliente> clientes;
 
 	@OneToMany(mappedBy = "zoologico")
 	private List<Tienda> tiendas;
-
+	
+	@OneToMany(mappedBy = "zoologico")
+	private List<Entrada> entradas;
+	
 	@OneToMany(mappedBy = "zoologico")
 	private List<Empleado> empleados;
 
-	@OneToMany(mappedBy = "zoologico")
-	private List<Entrada> entradas;
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -82,20 +88,12 @@ public class Zoologico {
 		this.tipo = tipo;
 	}
 
-	public List<Entrada> getEntradas() {
-		return entradas;
+	public List<Animal> getAnimales() {
+		return animales;
 	}
 
-	public void setEntradas(List<Entrada> entradas) {
-		this.entradas = entradas;
-	}
-
-	public List<Animal> getAnimals() {
-		return animals;
-	}
-
-	public void setAnimals(List<Animal> animals) {
-		this.animals = animals;
+	public void setAnimales(List<Animal> animales) {
+		this.animales = animales;
 	}
 
 	public List<Cliente> getClientes() {
@@ -114,6 +112,14 @@ public class Zoologico {
 		this.tiendas = tiendas;
 	}
 
+	public List<Entrada> getEntradas() {
+		return entradas;
+	}
+
+	public void setEntradas(List<Entrada> entradas) {
+		this.entradas = entradas;
+	}
+
 	public List<Empleado> getEmpleados() {
 		return empleados;
 	}
@@ -125,7 +131,7 @@ public class Zoologico {
 	@Override
 	public String toString() {
 		return "Zoologico [id=" + id + ", ruc=" + ruc + ", nombre=" + nombre + ", direccion=" + direccion + ", tipo="
-				+ tipo + "]";
+				+ tipo + ", animales=" + animales + ", clientes=" + clientes + ", tiendas=" + tiendas + ", entradas="
+				+ entradas + ", empleados=" + empleados + "]";
 	}
-
 }

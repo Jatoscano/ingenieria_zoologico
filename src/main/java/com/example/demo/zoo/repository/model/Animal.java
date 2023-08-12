@@ -20,7 +20,6 @@ import jakarta.persistence.Table;
 @Entity
 public class Animal {
 	
-	
 	@Id
 	@SequenceGenerator(allocationSize = 1,name = "seq_anim",sequenceName = "seq_anim")
 	@GeneratedValue(generator = "seq_anim", strategy = GenerationType.SEQUENCE)
@@ -55,11 +54,19 @@ public class Animal {
 	@JoinColumn(name = "anim_id_zoologico")
 	private Zoologico zoologico;
 	
-	@ManyToOne
-	@JoinColumn(name = "anim_id_empleado")
-	private Empleado empleado;
+	@ManyToMany(mappedBy = "animales")
+	private Set<Producto> productos;
+	
+	@Override
+	public String toString() {
+		return "Animal [id=" + id + ", mote=" + mote + ", fechaNacimiento=" + fechaNacimiento + ", edad=" + edad
+				+ ", tipo=" + tipo + ", especie=" + especie + ", nombre=" + nombre + ", observaciones=" + observaciones
+				+ ", atencionesMedicas=" + atencionesMedicas + ", zoologico=" + zoologico + ", productos=" + productos
+				+ "]";
+	}
 	
 	//GET&SET
+	
 	public Integer getId() {
 		return id;
 	}
@@ -122,5 +129,29 @@ public class Animal {
 
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
+	}
+
+	public List<AtencionMedica> getAtencionesMedicas() {
+		return atencionesMedicas;
+	}
+
+	public void setAtencionesMedicas(List<AtencionMedica> atencionesMedicas) {
+		this.atencionesMedicas = atencionesMedicas;
+	}
+
+	public Zoologico getZoologico() {
+		return zoologico;
+	}
+
+	public void setZoologico(Zoologico zoologico) {
+		this.zoologico = zoologico;
+	}
+
+	public Set<Producto> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(Set<Producto> productos) {
+		this.productos = productos;
 	}
 }
