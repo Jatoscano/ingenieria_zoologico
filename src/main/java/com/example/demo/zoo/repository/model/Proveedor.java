@@ -5,6 +5,7 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -14,8 +15,8 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
-@Entity(name = "proveedor")
-@Table
+@Entity
+@Table(name = "proveedor")
 public class Proveedor {
 	
 	@Id
@@ -37,13 +38,18 @@ public class Proveedor {
 	private String email;
 	
 	
-	@ManyToMany()
-	@JoinTable(name = "proveedor_aldi", joinColumns = @JoinColumn(name="pral_id_proveedor"), inverseJoinColumns = @JoinColumn(name="pral_id_alimento_disponible") )
-	private List<AlimentoDisponible> alimentosDisponibles;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "proveedor_prod", joinColumns = @JoinColumn(name="provprod_id_proveedor"), inverseJoinColumns = @JoinColumn(name="provprod_id_producto") )
+	private List<Producto> productos;
 
+	@Override
+	public String toString() {
+		return "Proveedor [id=" + id + ", nombreCompleto=" + nombreCompleto + ", tiempoEntrega=" + tiempoEntrega
+				+ ", celular=" + celular + ", email=" + email + ", productos=" + productos + "]";
+	}
 
-	
 	//GET&SET
+	
 	public Integer getId() {
 		return id;
 	}
@@ -94,9 +100,12 @@ public class Proveedor {
 	}
 
 
+	public List<Producto> getProductos() {
+		return productos;
+	}
 
-	
-	
-	
 
+	public void setProductos(List<Producto> productos) {
+		this.productos = productos;
+	}
 }

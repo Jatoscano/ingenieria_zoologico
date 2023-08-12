@@ -40,18 +40,15 @@ public class AtencionMedica {
 	private Veterinario veterinario;
 
 	@ManyToOne
-	@JoinColumn(name = "atme_id_empleado")
-	private Empleado empleado;
-
-	@ManyToOne
 	@JoinColumn(name = "atme_id_animal")
 	private Animal animal;
+
 
 	@Override
 	public String toString() {
 		return "AtencionMedica [id=" + id + ", peso=" + peso + ", alergia=" + alergia + ", reflejo=" + reflejo
-				+ ", receta=" + receta + ", observacion=" + observacion + ", veterinario=" + veterinario + ", empleado="
-				+ empleado + ", animal=" + animal + "]";
+				+ ", receta=" + receta + ", observacion=" + observacion + ", veterinario=" + veterinario + ", animal="
+				+ animal + "]";
 	}
 
 	public Integer getId() {
@@ -110,14 +107,6 @@ public class AtencionMedica {
 		this.veterinario = veterinario;
 	}
 
-	public Empleado getEmpleado() {
-		return empleado;
-	}
-
-	public void setEmpleado(Empleado empleado) {
-		this.empleado = empleado;
-	}
-
 	public Animal getAnimal() {
 		return animal;
 	}
@@ -125,5 +114,4 @@ public class AtencionMedica {
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
 	}
-
 }

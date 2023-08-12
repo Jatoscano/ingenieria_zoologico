@@ -10,12 +10,15 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Component
-@Table(name = "cliente",schema = "public")
+@Table(name = "cliente", schema = "public")
 @Entity
 public class Cliente {
 	@Id
@@ -33,15 +36,25 @@ public class Cliente {
 	private String direccion;
 	@Column(name = "clie_email")
 	private String email;
+
+
+	// RELACION CON ENTRADAS DE 1 A MUCHOS
+
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+	private List<Factura> facturas;	
 	
-	//RELACION CON ENTRADAS DE 1 A MUCHOS
-
-					@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
-	private List<Factura> facturas;
+	@ManyToOne()
+	@JoinColumn(name = "clie_id_zoologico")
+	private Zoologico zoologico;
 	
-	//set y get
+	@ManyToOne()
+	@JoinColumn(name = "clie_id_tienda")
+	private Tienda tienda;
 
+	@OneToOne(mappedBy = "cliente")
+	private Entrada entrada;
 
+	// set y get
 	public Integer getId() {
 		return id;
 	}
@@ -98,13 +111,35 @@ public class Cliente {
 		this.facturas = facturas;
 	}
 
+	public Zoologico getZoologico() {
+		return zoologico;
+	}
+
+	public void setZoologico(Zoologico zoologico) {
+		this.zoologico = zoologico;
+	}
+
+	public Tienda getTienda() {
+		return tienda;
+	}
+
+	public void setTienda(Tienda tienda) {
+		this.tienda = tienda;
+	}
+
+	public Entrada getEntrada() {
+		return entrada;
+	}
+
+	public void setEntrada(Entrada entrada) {
+		this.entrada = entrada;
+	}
+
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula
-				+ ", direccion=" + direccion + ", email=" + email + ", facturas=" + facturas + "]";
+				+ ", direccion=" + direccion + ", email=" + email + ", facturas=" + facturas + ", zoologico="
+				+ zoologico + ", tienda=" + tienda + ", entrada=" + entrada + "]";
 	}
-	
-		
-	
-	
+
 }
