@@ -54,7 +54,6 @@
             
 
 
-            <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
         </ul>
     </nav>
     
@@ -68,36 +67,50 @@
  <div class="div1">
 
     <table class="tab">
+		
+		  <tr>
+							<td id="tElm" >Nombre: </td>
+
+            <td> <input type="text" th:field="${animal.nombre}" id="tElm" ></td>
+
+        </tr>
 
         
 
         <tr> 
-            <td><input type="text" th:field="${animal.mote}" id="tElm" placeholder="Mote"> </td>
+							<td id="tElm" >Mote: </td>
+
+            <td><input type="text" th:field="${animal.mote}" id="tElm" > </td>
         </tr>
 
 
         <tr>
-            <td><input type= "datetime-local"  id="tElm" th:field="${animal.fechaNacimiento}" placeholder="Fecha de nacimiento"></td>
+							<td id="tElm" >Fecha de nacimiento: </td>
+
+            <td><input type= "datetime-local"  id="tElm" th:field="${animal.fechaNacimiento}"></td>
         </tr>
 
 
         <tr>
-            <td><input type="number" th:field="${animal.edad}" id="tElm"  placeholder="Edad"></td>
+							<td id="tElm" >Edad: </td>
+
+            <td><input type="number" th:field="${animal.edad}" id="tElm"  ></td>
         </tr>
 
         <tr>
-            <td><input type="text"  id="tElm" th:field="${animal.tipo}" placeholder="Tipo"></td>
+							<td id="tElm" >Tipo: </td>
+
+            <td><input type="text"  id="tElm" th:field="${animal.tipo}" ></td>
         </tr>
 
         <tr>
-            <td><input type="text" id="tElm" th:field="${animal.especie}" placeholder="Especie"></td>
+							<td id="tElm" >Especie: </td>
+
+            <td><input type="text" id="tElm" th:field="${animal.especie}" ></td>
 
         </tr>
 
-        <tr>
-            <td> <input type="text" th:field="${animal.nombre}" id="tElm" placeholder="Nombre"></td>
-
-        </tr>
+      
 
 
      

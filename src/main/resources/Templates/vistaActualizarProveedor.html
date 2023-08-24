@@ -48,7 +48,7 @@
             
 
 
-            <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+            
         </ul>
     </nav>
     
@@ -69,13 +69,25 @@
 
  <div class="div1">		
 				<table class="tab">
-					<tr><td> <input type="text" id="tElm"  placeholder="Nombre Completo"  th:field="${proveedor.nombreCompleto}"></td></tr>
+					<tr>
+													<td id="tElm" >Nombre: </td>
+
+						<td> <input type="text" id="tElm"    th:field="${proveedor.nombreCompleto}"></td></tr>
 	
-					<tr> <td> <input type="datetime-local"   id="tElm" placeholder="Fecha de entrega" th:field="${proveedor.tiempoEntrega}"> </td> </tr>
+					<tr>
+													<td id="tElm" >Fecha de entrega: </td>
+
+						 <td> <input type="datetime-local"   id="tElm"  th:field="${proveedor.tiempoEntrega}"> </td> </tr>
 	
-					<tr>  <td> <input type="text"  id="tElm" placeholder="Numero Telefonico" th:field="${proveedor.celular}"></td>   </tr>
+					<tr>  
+													<td id="tElm" >Telefono: </td>
+
+						<td> <input type="text"  id="tElm"  th:field="${proveedor.celular}"></td>   </tr>
 	
-					<tr> <td> <input type="email" id="tElm"  placeholder="E-mail" th:field="${proveedor.email}" > </td> </tr>
+					<tr> 
+													<td id="tElm" >Correo: </td>
+
+						<td> <input type="email" id="tElm"   th:field="${proveedor.email}" > </td> </tr>
 	
 					<tr> <td> <input type="submit"  id="tElm"  value="Guardar"> </td> </tr>
 	

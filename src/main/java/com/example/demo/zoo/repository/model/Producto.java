@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -49,6 +48,14 @@ public class Producto {
     private String tipo;
 	
 	
+	@Column(name = "prod_bodega")
+	private String bodega;
+	
+	
+	@Column(name = "prod_refrigeracion")
+	private Boolean refrigeracion;
+	
+	
 	@ManyToMany
 	@JoinTable(name = "producto_animal", joinColumns = @JoinColumn(name="prodanim_id_prod"), inverseJoinColumns = @JoinColumn(name="prodanim_id_animal"))
 	private Set<Animal> animales;
@@ -70,6 +77,22 @@ public class Producto {
 	
 	public Integer getId() {
 		return id;
+	}
+
+	public String getBodega() {
+		return bodega;
+	}
+
+	public void setBodega(String bodega) {
+		this.bodega = bodega;
+	}
+
+	public Boolean getRefrigeracion() {
+		return refrigeracion;
+	}
+
+	public void setRefrigeracion(Boolean refrigeracion) {
+		this.refrigeracion = refrigeracion;
 	}
 
 	public Integer getCantidad() {

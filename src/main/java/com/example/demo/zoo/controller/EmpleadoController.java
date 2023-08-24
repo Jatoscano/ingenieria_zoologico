@@ -149,9 +149,14 @@ public class EmpleadoController {
 	
 	@GetMapping("/vistaListarProductosVst")
 	public String vistaListarProductosVst(Model model) {
+	
+		
 		iProductoService.eliminarAgotados();
 		
 		List<Producto> productos= this.iProductoService.buscarTodos();
+		
+		
+		
 		model.addAttribute("productos", productos);
 		
 		
@@ -253,8 +258,13 @@ public class EmpleadoController {
 		
 	
 	List<Proveedor>	proveedores=this.iProveedorService.buscarTodosProveedores();
+	
 
 	model.addAttribute("proveedor", proveedores)	;
+	
+	
+	
+	
 	model.addAttribute("producto", new Producto())	;
 	 
 	return "vistaInsertarProducto";

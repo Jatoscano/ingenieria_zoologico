@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.demo.zoo.repository.model.Animal;
 import com.example.demo.zoo.repository.model.Proveedor;
 import com.example.demo.zoo.service.IProveedorService;
 
@@ -29,6 +30,11 @@ public class IngenieriaZoologicoApplication implements CommandLineRunner{
 		for (Proveedor proveedor : l) {
 			System.out.println(proveedor);
 		}*/
+		
+		
+		
+		
+		
 	}
 
 }
