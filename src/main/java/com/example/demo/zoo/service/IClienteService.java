@@ -9,5 +9,6 @@ public interface IClienteService {
 	public void actualizar (Cliente cliente);
 	public Cliente buscar (Integer id);
 	public void borrar (Integer id);
+	public Cliente buscarPorCedula(String cedula);
 	
 }

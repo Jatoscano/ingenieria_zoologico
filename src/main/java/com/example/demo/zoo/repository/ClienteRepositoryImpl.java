@@ -6,8 +6,11 @@ import com.example.demo.zoo.repository.model.Cliente;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 
 @Repository
+@Transactional
 public class ClienteRepositoryImpl implements IClienteRepository{
 	
 	@PersistenceContext
@@ -37,5 +40,22 @@ public class ClienteRepositoryImpl implements IClienteRepository{
 		this.entityManager.remove(id);
 		
 	}
+
+	@Override
+	public Cliente buscarPorCedula(String cedula) {
+		TypedQuery<Cliente> query=this.entityManager.createQuery("select c from Cliente c where c.cedula=:datoCedula",Cliente.class);
+		query.setParameter("datoCedula",cedula);
+		
+		Cliente cliente=null;
+		
+		try {
+			cliente=query.getSingleResult();
+		} catch (Exception e) {
+		}
+		
+		return cliente;
+	}
+	
+	
 
 }

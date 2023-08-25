@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.example.demo.zoo.repository.IClienteRepository;
 import com.example.demo.zoo.repository.model.Cliente;
 
+import jakarta.persistence.TypedQuery;
+
 @Service
 public class ClienteServiceImpl implements IClienteService{
 	
@@ -35,4 +37,12 @@ public class ClienteServiceImpl implements IClienteService{
 		this.clienteRepository.eliminar(id);		
 	}
 
+	@Override
+	public Cliente buscarPorCedula(String cedula) {
+		
+		return this.clienteRepository.buscarPorCedula(cedula);
+	}
+
+	
+	
 }

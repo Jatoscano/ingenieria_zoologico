@@ -51,8 +51,8 @@ public class Cliente {
 	@JoinColumn(name = "clie_id_tienda")
 	private Tienda tienda;
 
-	@OneToOne(mappedBy = "cliente")
-	private Entrada entrada;
+	@OneToMany(mappedBy = "cliente")
+	private List<Entrada> entradas;
 
 	// set y get
 	public Integer getId() {
@@ -127,19 +127,22 @@ public class Cliente {
 		this.tienda = tienda;
 	}
 
-	public Entrada getEntrada() {
-		return entrada;
+	public List<Entrada> getEntradas() {
+		return entradas;
 	}
 
-	public void setEntrada(Entrada entrada) {
-		this.entrada = entrada;
+	public void setEntradas(List<Entrada> entradas) {
+		this.entradas = entradas;
 	}
 
+	
+	
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula
-				+ ", direccion=" + direccion + ", email=" + email + ", facturas=" + facturas + ", zoologico="
-				+ zoologico + ", tienda=" + tienda + ", entrada=" + entrada + "]";
+				+ ", direccion=" + direccion + ", email=" + email + "]";
 	}
+
+
 
 }
