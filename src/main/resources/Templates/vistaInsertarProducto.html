@@ -52,7 +52,6 @@
             
 
 
-            <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
         </ul>
     </nav>
      <!--  /* hasta aqui MENU*/-->
@@ -85,7 +84,8 @@
 
 
         <tr>
-            <td><input type="datetime-local" th:field="${producto.fechaCaducidad}" id="tElm"  placeholder="Fecha de caducidad"></td>
+           <td id="tElm" ><label>Fecha de caducidad: </label> </td>
+           <td><input type="datetime-local" th:field="${producto.fechaCaducidad}" id="tElm" placeholder="Fecha de caducidad"></td>
         </tr>
 
         <tr>
@@ -97,6 +97,7 @@
 
         </tr> 
 			<tr>
+				<td id="tElm" >Proveedor: </td>
 				<td>
 		            <select id="tElm" name="proveedorId" required>
 		                <option th:each="proveedor : ${proveedor}" th:value="${proveedor.id}" th:text="${proveedor.nombreCompleto}"></option>
@@ -104,6 +105,18 @@
 		        </td>
 			</tr>
 		
+		<tr>
+            <td><input type="text" id="tElm" th:field="${producto.bodega}" placeholder="Bodega "></td>
+
+        </tr> 
+
+          <tr>
+			<td id="tElm" >¿Necesita refrigeración? [SI/NO]</td>
+
+			<td> <input type="radio" name="myBoolean" value="true" th:field="${producto.refrigeracion}"> </td>
+        	<td> <input type="radio" name="myBoolean" value="false" th:field="${producto.refrigeracion}"> </td>
+
+        </tr> 
 
      
             <tr>

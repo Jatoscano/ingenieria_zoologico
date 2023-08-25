@@ -14,6 +14,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Component
 @Table(name = "entrada")
@@ -31,14 +32,15 @@ public class Entrada {
 	private String tipo;
 	@Column(name = "entr_costo")
 	private BigDecimal costo;
-	
+	@Transient
+	private Integer cantidad;
 	
 	@ManyToOne
 	@JoinColumn(name = "entr_id_zoologico")
 	private Zoologico zoologico;
 
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "entr_id_cliente")
 	private Cliente cliente;
 	
@@ -95,14 +97,28 @@ public class Entrada {
 	}
 
 
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
+
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Entrada [id=" + id + ", numero=" + numero + ", tipo=" + tipo + ", costo=" + costo + "]";
 	}
-	
-	
-	
-	
-	
-	
 }

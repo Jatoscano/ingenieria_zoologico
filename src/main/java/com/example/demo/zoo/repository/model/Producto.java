@@ -42,6 +42,11 @@ public class Producto {
 	@Column(name = "prod_tipo")
     private String tipo;
 	
+	@Column(name = "prod_bodega")
+	private String bodega;
+	
+	@Column(name = "prod_refrigeracion")
+	private Boolean refrigeracion;
 	
 	@ManyToMany
 	@JoinTable(name = "producto_animal", joinColumns = @JoinColumn(name="prodanim_id_prod"), inverseJoinColumns = @JoinColumn(name="prodanim_id_animal"))
@@ -71,6 +76,22 @@ public class Producto {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getBodega() {
+		return bodega;
+	}
+
+	public void setBodega(String bodega) {
+		this.bodega = bodega;
+	}
+
+	public Boolean getRefrigeracion() {
+		return refrigeracion;
+	}
+
+	public void setRefrigeracion(Boolean refrigeracion) {
+		this.refrigeracion = refrigeracion;
 	}
 
 	public String getNombre() {
@@ -143,5 +164,13 @@ public class Producto {
 
 	public void setTienda(Tienda tienda) {
 		this.tienda = tienda;
+	}
+
+	@Override
+	public String toString() {
+		return "Producto [id=" + id + ", nombre=" + nombre + ", cantidad=" + cantidad + ", fechaCaducidad="
+				+ fechaCaducidad + ", costo=" + costo + ", tipo=" + tipo + ", bodega=" + bodega + ", refrigeracion="
+				+ refrigeracion + ", animales=" + animales + ", proveedores=" + proveedores + ", proforma=" + proforma
+				+ ", tienda=" + tienda + "]";
 	}	
 }

@@ -6,6 +6,7 @@ import com.example.demo.zoo.repository.model.Cliente;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 
 @Repository
 public class ClienteRepositoryImpl implements IClienteRepository{
@@ -38,4 +39,18 @@ public class ClienteRepositoryImpl implements IClienteRepository{
 		
 	}
 
+	@Override
+	public Cliente buscarPorCedula(String cedula) {
+		TypedQuery<Cliente> query=this.entityManager.createQuery("select c from Cliente c where c.cedula=:datoCedula",Cliente.class);
+		query.setParameter("datoCedula",cedula);
+
+		Cliente cliente=null;
+
+		try {
+			cliente=query.getSingleResult();
+		} catch (Exception e) {
+		}
+
+		return cliente;
+	}
 }

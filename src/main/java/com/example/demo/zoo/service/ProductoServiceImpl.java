@@ -1,5 +1,6 @@
 package com.example.demo.zoo.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.zoo.repository.IProductoRepository;
 import com.example.demo.zoo.repository.model.Producto;
+import com.example.demo.zoo.repository.model.accesos.ProductoPresupuesto;
 
 @Service
 public class ProductoServiceImpl implements IProductoService{
@@ -57,6 +59,21 @@ public class ProductoServiceImpl implements IProductoService{
 		iProductoRepository.eliminarId(id);
 	}
 
+	@Override
+	public ProductoPresupuesto procesarPresupuesto(ProductoPresupuesto productoPresupuesto) {
+		ProductoPresupuesto nuevoPP= new ProductoPresupuesto();
+		nuevoPP=productoPresupuesto;
+		BigDecimal subTotal=productoPresupuesto.getCostoUnitario().multiply(new BigDecimal(productoPresupuesto.getCantidad()));
+		BigDecimal iva=subTotal.multiply(new BigDecimal(0.12f));
+		BigDecimal total=subTotal.add(iva);
+
+		nuevoPP.setSubTotal(subTotal);
+		nuevoPP.setIva(iva);
+		nuevoPP.setTotal(total);
+
+		return nuevoPP;
+	}
+	
 	
 	
 

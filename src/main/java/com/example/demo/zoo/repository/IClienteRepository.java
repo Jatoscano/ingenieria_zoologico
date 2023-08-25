@@ -9,5 +9,6 @@ public interface IClienteRepository {
 	public void actualizar (Cliente cliente);
 	public Cliente buscar (Integer id);
 	public void eliminar (Integer id);
+	public Cliente buscarPorCedula(String cedula);
 	
 }

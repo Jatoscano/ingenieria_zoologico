@@ -56,7 +56,7 @@
             
 
 
-            <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+           
         </ul>
     </nav>
     
@@ -88,35 +88,52 @@
         
 
         <tr> 
-            <td><input type="text" th:field="${producto.nombre}" id="tElm" placeholder="Nombre"> </td>
+           <td id="tElm" >Nombre: </td>
+           <td><input type="text" th:field="${producto.nombre}" id="tElm"></td>
         </tr>
 
 
         <tr>
-            <td><input type= "number"  id="tElm" th:field="${producto.cantidad}" placeholder="Cantidad"></td>
+            <td id="tElm" >Cantidad: </td>
+            <td><input type= "number"  id="tElm" th:field="${producto.cantidad}" ></td>
         </tr>
 
 
         <tr>
-            <td><input type="datetime-local" th:field="${producto.fechaCaducidad}" id="tElm"  placeholder="Fecha de caducidad"></td>
+            <td id="tElm" >Fecha de caducidad: </td>
+            <td><input type="datetime-local" th:field="${producto.fechaCaducidad}" id="tElm"  ></td>
         </tr>
 
         <tr>
-            <td><input type="number"  id="tElm" th:field="${producto.costo}" placeholder="Costo "></td>
+           <td id="tElm" >Costo: </td>
+            <td><input type="number"  id="tElm" th:field="${producto.costo}" ></td>
         </tr>
 
         <tr>
-            <td><input type="text" id="tElm" th:field="${producto.tipo}" placeholder="Tipo "></td>
-
+            <td id="tElm" >Tipo</td>
+            <td><input type="text" id="tElm" th:field="${producto.tipo}" ></td>
         </tr> 
 			<tr>
+				<td id="tElm" >Proveedor: </td>
 				<td>
 		            <select id="tElm" name="proveedorId" required>
 		                <option th:each="proveedor : ${proveedor}" th:value="${proveedor.id}" th:text="${proveedor.nombreCompleto}"></option>
 		            </select>
 		        </td>
 			</tr>
-		
+
+		<tr>
+			<td id="tElm" >Bodega: </td>
+            <td><input type="text"  id="tElm" th:field="${producto.bodega}" ></td>
+        </tr>
+
+        <tr>
+			<td id="tElm" >¿Necesita refrigeración? [SI/NO]</td>
+
+			<td> <input type="radio" name="myBoolean" value="true" th:field="${producto.refrigeracion}"> </td>
+        	<td> <input type="radio" name="myBoolean" value="false" th:field="${producto.refrigeracion}"> </td>
+
+        </tr>		
 
      
             <tr>
@@ -124,11 +141,6 @@
             </tr>
 
        
-        
-
-    
-       
-
 </table>
 
 
