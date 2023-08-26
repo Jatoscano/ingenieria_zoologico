@@ -5,11 +5,13 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.modelo.AtencionMedica;
+import com.example.demo.modelo.Empleado;
 import com.example.demo.modelo.Veterinario;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -40,10 +42,10 @@ public class VeterinarioRepoImpl implements IVeterinarioRepo {
 	@Override
 	public List<Veterinario> buscarTodos() {
 		// TODO Auto-generated method stub
-		Query query = this.entityManager.createNativeQuery("select * from veterinario");
-		List<Veterinario> listaTotal = query.getResultList();
+		TypedQuery<Veterinario> query = this.entityManager.createQuery("select e from Veterinario e", Veterinario.class);
+		 
 
-		return listaTotal;
+		return  query.getResultList();
 	}
 
 	@Override

@@ -5,9 +5,12 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,13 +18,13 @@ import jakarta.persistence.Table;
 public class Empleado {
 	
 	@Id
-	//@GeneratedValue(generator = "seq_empleado" , strategy =  GenerationType.SEQUENCE)
-	//@SequenceGenerator(name = "seq_empleado" ,sequenceName = "seq_empleado",allocationSize = 1)
+	@GeneratedValue(generator = "seq_empleado" , strategy =  GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "seq_empleado" ,sequenceName = "seq_empleado",allocationSize = 1)
 	@Column(name = "empl_id")
 	private Integer id;
 	
 	@Column(name = "empl_cedula_pasaporte")
-	private String cedula_pasaporte;
+	private String cedulaPasaporte;
 	
 	@Column(name = "empl_nombre")
 	private String nombre;
@@ -62,12 +65,14 @@ public class Empleado {
 		this.id = id;
 	}
 
-	public String getCedula_pasaporte() {
-		return cedula_pasaporte;
+
+
+	public String getCedulaPasaporte() {
+		return cedulaPasaporte;
 	}
 
-	public void setCedula_pasaporte(String cedula_pasaporte) {
-		this.cedula_pasaporte = cedula_pasaporte;
+	public void setCedulaPasaporte(String cedulaPasaporte) {
+		this.cedulaPasaporte = cedulaPasaporte;
 	}
 
 	public String getNombre() {
@@ -132,6 +137,14 @@ public class Empleado {
 
 	public void setAtencionMedica(List<AtencionMedica> atencionMedica) {
 		this.atencionMedica = atencionMedica;
+	}
+
+	@Override
+	public String toString() {
+		return "Empleado [id=" + id + ", cedulaPasaporte=" + cedulaPasaporte + ", nombre=" + nombre + ", apellido="
+				+ apellido + ", fechaNacimiento=" + fechaNacimiento + ", fechaContrato=" + fechaContrato
+				+ ", fechaRenovacion=" + fechaRenovacion + ", tipo=" + tipo + ", observacion=" + observacion
+				 + "]";
 	}
 	
 
