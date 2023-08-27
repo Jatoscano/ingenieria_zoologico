@@ -63,7 +63,4 @@ public class PrincipalController {
 		return "vistaDatosClienteE";
 	}
 	
-	
-	
-	
 }
