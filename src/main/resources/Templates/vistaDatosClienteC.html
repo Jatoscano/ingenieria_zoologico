@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  type="text/css"  href="../../stylec.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <title>ZooAMARU.ec </title>
+</head>
+
+<body>
+
+    <header class="header1", style="font-size: 10px; height: 80px;">
+         
+        <div class="menu container">
+              <a href="a" class="logo">Logo</a>
+              <input type="checkbox" id="menu" />
+              <label for="menu"><img src="img/menu.png" class="menu-icono" alt=""></label>        
+              <nav class="navbar">
+               <ul>
+               <li><a href="http://localhost:8080/zoologico/inicio">Inicio</a></li>
+                <li><a href="http://localhost:8080/zoologico/nosotros">Nosotros</a></li>
+                <li><a href="http://localhost:8080/zoologico/tienda">Productos</a></li>
+                <li><a href="http://localhost:8080/zoologico/fauna">Fauna</a></li>
+                <li><a href="http://localhost:8080/empleado/insertarProveedorVst">Administracion</a></li>
+                <li><a href="http://localhost:8080/zoologico/entradas">Entradas</a></li>
+             </ul> 
+              </nav>
+        </div>
+      </header>
+
+    <!--Tabla de detalles de la compra y total a pagar -->
+    <h2 style="color:  #8883ec">Detalles de la Compra</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="color:  #a848ec">Tipo de Entrada</th>
+                <th style="color:  #a848ec">Cantidad</th>
+                <th style="color:  #a848ec">Precio Unitario</th>
+                <th style="color:  #a848ec">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody id="productos-comprados">
+            <!--Aquí se mostrarán los detalles de la compra -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Total a Pagar:</td>
+                <td id="total-pagar"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <!--Formulario de ingreso de datos del cliente-->
+    <form id="formulario" th:action="@{/zoologico/insertarCliente}" th:object="${cliente}" th:method="POST">
+        <div class="box-container">
+
+            <div class="box">
+                <h3>Ingrese Datos de Cliente</h3>
+                <table class="tab">
+                    <tr>
+                        <td><input type="text" th:field="${cliente.cedula}" name="cedula" id="tElm" placeholder="Cedula"> </td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" th:field="${cliente.nombre}" name="nombre" id="tElm" placeholder="Nombre"> </td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" th:field="${cliente.apellido}" name="apellido" id="tElm" placeholder="Apellido"> </td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" th:field="${cliente.direccion}" name="direccion" id="tElm" placeholder="Direccion"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="email" th:field="${cliente.email}" name="email" id="tElm" placeholder="Email "></td>
+                    </tr>
+                    <tr>
+                        <td> <input type="submit" value="Guardar" id="boton1" class=" btn-r"> </td>
+
+
+                    </tr>
+                </table>
+                <a href="http://localhost:8080/zoologico/tienda" class=" btn-r" data-id="3">Volver a Compras</a>
+            </div>
+        </div>
+    </form>
+    <!--Tabla de detalles del cliente-->
+    <h2 style="color:  #8883ec">Detalles de factura</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="color:  #a848ec">Cedula</th>
+                <th style="color:  #a848ec">Nombre</th>
+                <th style="color:  #a848ec">Apellido</th>
+                <th style="color:  #a848ec">Dirección</th>
+                <th style="color:  #a848ec">Email</th>
+                <th style="color:  #a848ec">Iva</th>
+                <th style="color:  #a848ec">Total a Pagar</th> <!-- Nueva columna -->
+            </tr>
+        </thead>
+        <tbody id="datos-cliente">
+            <!--Aquí se mostrarán los datos del cliente -->
+        </tbody>
+    </table>
+
+    <!--Script para mostrar los datos del cliente y detalles de compra -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const productosEnCarrito = [
+                { id: "1", titulo: "Busto en Piedra", precio: "$70.00", promo: "Busto en Piedra" },
+                { id: "2", titulo: "Panda Rojo de Felpa", precio: "$100.00", promo: "Panda Rojo de Felpa" },
+                { id: "3", titulo: "Sombrero Tejido", precio: "$45.00", promo: "Sombrero Tejido" },
+                { id: "4", titulo: "Bolso Estampado", precio: "$50.00", promo: "Bolso Estampado" },
+                { id: "5", titulo: "Tigre de Felpa", precio: "$130.00", promo: "Tigre de Felpa" },
+                { id: "6", titulo: "Elefante de Felpa", precio: "$150.00", promo: "Elefante de Felpa"},
+                { id: "7", titulo: "Libreta Grande", precio: "$20.00", promo: "Libreta Grande"},
+                { id: "8", titulo: "Jarro de Ceramica", precio: "$15.00", promo: "Jarro de Ceramica" }
+            
+            ];
+
+            const productosCompradosTbody = document.getElementById('productos-comprados');
+            productosCompradosTbody.innerHTML = '';
+
+            const detallesCompra = {};
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const contadoresJSON = urlParams.get('contadores');
+            const contadores = JSON.parse(decodeURIComponent(contadoresJSON));
+
+            productosEnCarrito.forEach(producto => {
+                const { id, titulo, precio, promo } = producto;
+                const precioUnitario = parseFloat(precio.substring(1));
+
+                const cantidad = contadores[id] || 0;
+
+                if (!detallesCompra[promo]) {
+                    detallesCompra[promo] = {
+                        cantidad: cantidad,
+                        subtotal: precioUnitario * cantidad
+                    };
+                } else {
+                    detallesCompra[promo].cantidad += cantidad;
+                    detallesCompra[promo].subtotal += precioUnitario * cantidad;
+                }
+
+                const productoTr = document.createElement('tr');
+                productoTr.innerHTML = `
+                    <td>${promo}</td>
+                    <td>${detallesCompra[promo].cantidad}</td>
+                    <td>$${precioUnitario.toFixed(2)}</td>
+                    <td>$${detallesCompra[promo].subtotal.toFixed(2)}</td>
+                `;
+                productosCompradosTbody.appendChild(productoTr);
+            });
+
+            const formulario = document.getElementById('formulario');
+            formulario.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const formData = new FormData(formulario);
+                const cedula = formData.get('cedula');
+                const nombre = formData.get('nombre');
+                const apellido = formData.get('apellido');
+                const direccion = formData.get('direccion');
+                const email = formData.get('email');
+
+                const tablaCliente = document.getElementById('datos-cliente');
+                tablaCliente.innerHTML = '';
+
+                const filaCliente = document.createElement('tr');
+                filaCliente.innerHTML = `
+                    <td>${cedula}</td>
+                    <td>${nombre}</td>
+                    <td>${apellido}</td>
+                    <td>${direccion}</td>
+                    <td>${email}</td>
+                    <td>12%</td>
+                    <td>$${Object.values(detallesCompra).reduce((acc, promo) => (acc + promo.subtotal*.12)+promo.subtotal, 0).toFixed(2)}</td>
+ 
+                `;
+                tablaCliente.appendChild(filaCliente);
+
+                const totalPagarTd = document.getElementById('total-pagar');
+                totalPagarTd.textContent = `$${Object.values(detallesCompra).reduce((acc, promo) => acc + promo.subtotal, 0).toFixed(2)}`;
+
+            });
+        });
+
+    </script>
+</body>
+
+</html>
