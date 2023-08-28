@@ -6,8 +6,10 @@ import com.example.demo.zoo.repository.model.Proforma;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 @Repository
+@Transactional
 public class ProformaRepositoryImpl implements IProformaRepository{
 
 	

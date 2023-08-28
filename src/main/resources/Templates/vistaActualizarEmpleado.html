@@ -1,0 +1,104 @@
+<html>
+
+		<head>
+
+				<title>Insertar Empleado</title>
+
+
+    <link rel="stylesheet"  type="text/css"  href="../../estiloInsertarProveedor.css">
+    <link rel="stylesheet"  type="text/css" href="../../estiloMenuFoot.css">		</head>
+
+
+		<body>
+
+
+
+		  <!-- /*MENU*/-->
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="#inicio">Inicio</a>
+            </li>
+            <li class="dropdown">
+                <a href="#gestionar-animales">Gestionar Animales</a>
+                <ul class="submenu">
+
+
+                    <li><a href="http://localhost:8080/empleado/vistaListaAnimalesVst">Listar</a></li>
+                	<li><a href="http://localhost:8080/empleado/ingresarAnimalVst">Insertar</a></li>
+
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#gestionar-alimento">Gestionar Alimento</a>
+                <ul class="submenu">
+                    <li><a href="http://localhost:8080/empleado/vistaListarProductosVst">Listar</a></li>
+                    <li><a href="http://localhost:8080/empleado/insertarProductoVst">Insertar</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#gestionar-provedores">Gestionar Proveedores</a>
+                <ul class="submenu">
+                    <li><a href="http://localhost:8080/empleado/insertarProveedorVst">Insertar</a></li>
+
+                    <li><a href="http://localhost:8080/empleado/buscarTodosProveedoresVst">Listar</a></li>
+                </ul>
+            </li>
+
+             <li class="dropdown">
+                <a href="#gestionar-Empleado">Gestionar Empleado</a>
+                <ul class="submenu">
+                    <li><a href="http://localhost:8080/empleado/buscarTodosEmpleadosVst">Listar empleados</a></li>
+                    <li><a href="http://localhost:8080/empleado/ingresarEmpleadoVst">Insertar empleados</a></li>
+                    <li><a href="http://localhost:8080/veterinario/ingresarVeterinarioVst">veterinario</a></li>
+                    <li><a href="http://localhost:8080/veterinario/buscarTodosVeterinariosVst">Listar Veterinarios</a></li>
+                    <li><a href="http://localhost:8080/atencionMedica/ingresarAtencionMedicaVst">Insertar atención medica</a></li>
+                    <li><a href="http://localhost:8080/atencionMedica/buscarTodosAtencionMedicaVst">Listar atenciones medicas</a></li>
+
+                </ul>
+            </li>
+
+
+            <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+        </ul>
+    </nav>
+
+
+
+     <!--  /* hasta aqui MENU*/-->	
+
+
+			<h2 id= "h2titulo" >Actualizar empleado</h2>
+
+
+
+
+
+
+
+		<form form th:action="@{/empleado/actualizarEmpleado/{id}(id=${empleado.id})}" th:object="${id}" th:method="POST">
+
+ <div class="div1">		
+				<table class="tab">
+					<tr><td> <input type="text" id="tElm"  placeholder="Cedula/Pasaporte"  th:field="${empleado.cedulaPasaporte}"></td></tr>
+	                <tr><td> <input type="text" id="tElm"  placeholder="Nombre"  th:field="${empleado.nombre}"></td></tr>
+	                <tr><td> <input type="text" id="tElm"  placeholder="Apellido"  th:field="${empleado.apellido}"></td></tr>
+					<tr> <td> <input type="datetime-local"   id="tElm" placeholder="Fecha de nacimiento" th:field="${empleado.fechaNacimiento}"> </td> </tr>
+					<tr> <td> <input type="datetime-local"   id="tElm" placeholder="Fecha de contrato" th:field="${empleado.fechaContrato}"> </td> </tr>
+					<tr> <td> <input type="datetime-local"   id="tElm" placeholder="Fecha de renovación" th:field="${empleado.fechaRenovacion}"> </td> </tr>
+					<tr><td> <input type="text" id="tElm"  placeholder="Tipo"  th:field="${empleado.tipo}"></td></tr>
+					<tr><td> <input type="text" id="tElm"  placeholder="Observación"  th:field="${empleado.observacion}"></td></tr>
+
+
+					<tr> <td> <input type="submit"  id="tElm"  value="Guardar"> </td> </tr>
+
+				</table>
+
+	</div>			
+
+
+			</form>
+
+		</body>
+
+</html>

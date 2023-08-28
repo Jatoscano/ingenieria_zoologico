@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,14 @@
                 <li><a href="http://localhost:8080/zoologico/nosotros">Nosotros</a></li>
                 <li><a href="http://localhost:8080/zoologico/tienda">Productos</a></li>
                 <li><a href="http://localhost:8080/zoologico/fauna">Fauna</a></li>
-                <li><a href="http://localhost:8080/empleado/ingresarAnimalVst">Administracion</a></li>
+               
+                <li class="dropdown">
+					<a>Administracion</a>
+					<ul class="submenu">
+                    	<li><a href="http://localhost:8080/empleado/ingresarAnimalVst">Gestionar Zoologico</a></li>
+                    	<li><a href="http://localhost:8080/empleado/insertarProductoVst">Gestion de Empleado</a></li>
+                	</ul>
+                </li>
                 <li><a href="http://localhost:8080/zoologico/entradas">Entradas</a></li>
              </ul> 
         </nav>

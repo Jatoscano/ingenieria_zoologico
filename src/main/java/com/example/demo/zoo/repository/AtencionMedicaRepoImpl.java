@@ -8,7 +8,7 @@ import com.example.demo.zoo.repository.model.AtencionMedica;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -39,10 +39,9 @@ public class AtencionMedicaRepoImpl implements IAtencionMedicaRepo{
 	@Override
 	public List<AtencionMedica> buscarTodos() {
 		// TODO Auto-generated method stub
-		Query query = this.entityManager.createNativeQuery("select * from atencion_medica");
-		List<AtencionMedica> listaTotal = query.getResultList();
+		TypedQuery<AtencionMedica> query = this.entityManager.createQuery("select e from AtencionMedica e", AtencionMedica.class);
 
-		return listaTotal;
+		return query.getResultList();
 	}
 
 	@Override

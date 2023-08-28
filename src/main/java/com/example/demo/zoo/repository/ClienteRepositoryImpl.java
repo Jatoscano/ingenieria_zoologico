@@ -7,8 +7,10 @@ import com.example.demo.zoo.repository.model.Cliente;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 
 @Repository
+@Transactional
 public class ClienteRepositoryImpl implements IClienteRepository{
 	
 	@PersistenceContext

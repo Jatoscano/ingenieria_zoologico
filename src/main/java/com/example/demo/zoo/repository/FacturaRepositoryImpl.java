@@ -6,8 +6,10 @@ import com.example.demo.zoo.repository.model.Factura;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 @Repository
+@Transactional
 public class FacturaRepositoryImpl implements IFacturaRepository{
 	
 	@PersistenceContext

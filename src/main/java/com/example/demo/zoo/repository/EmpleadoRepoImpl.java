@@ -8,7 +8,7 @@ import com.example.demo.zoo.repository.model.Empleado;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 
@@ -43,10 +43,9 @@ public class EmpleadoRepoImpl implements IEmpleadoRepo {
 	@Override
 	public List<Empleado> buscarTodos() {
 		// TODO Auto-generated method stub
-		Query query = this.entityManager.createNativeQuery("select * from empleado");
-		List<Empleado> listaTotal = query.getResultList();
+		TypedQuery<Empleado> query = this.entityManager.createQuery("select e from Empleado e", Empleado.class);
 
-		return listaTotal;
+		return query.getResultList();
 	}
 
 	@Override

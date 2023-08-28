@@ -36,6 +36,23 @@ body{
     
 }
 
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    display: none;
+    padding: 10px;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.submenu li a:hover {
+    background-color: #555;
+}
+
 .logo a{
     text-decoration: none;
     color: #fff;

@@ -23,7 +23,7 @@ public class Empleado {
 	private Integer id;
 	
 	@Column(name = "empl_cedula_pasaporte")
-	private String cedula_pasaporte;
+	private String cedulaPasaporte;
 	
 	@Column(name = "empl_nombre")
 	private String nombre;
@@ -53,7 +53,7 @@ public class Empleado {
 	//To String
 	@Override
 	public String toString() {
-		return "Empleado [id=" + id + ", cedula_pasaporte=" + cedula_pasaporte + ", nombre=" + nombre + ", apellido="
+		return "Empleado [id=" + id + ", cedulaPasaporte=" + cedulaPasaporte + ", nombre=" + nombre + ", apellido="
 				+ apellido + ", fechaNacimiento=" + fechaNacimiento + ", fechaContrato=" + fechaContrato
 				+ ", fechaRenovacion=" + fechaRenovacion + ", tipo=" + tipo + ", observacion=" + observacion
 				+ ", zoologico=" + zoologico + "]";
@@ -68,12 +68,12 @@ public class Empleado {
 		this.id = id;
 	}
 
-	public String getCedula_pasaporte() {
-		return cedula_pasaporte;
+	public String getCedulaPasaporte() {
+		return cedulaPasaporte;
 	}
 
-	public void setCedula_pasaporte(String cedula_pasaporte) {
-		this.cedula_pasaporte = cedula_pasaporte;
+	public void setCedulaPasaporte(String cedulaPasaporte) {
+		this.cedulaPasaporte = cedulaPasaporte;
 	}
 
 	public String getNombre() {
