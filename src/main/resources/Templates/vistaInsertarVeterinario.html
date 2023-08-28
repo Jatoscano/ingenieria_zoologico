@@ -25,7 +25,7 @@
     <nav>
         <ul>
             <li class="dropdown">
-                <a href="#inicio">Inicio</a>
+                <a href="http://localhost:8080/zoologico/inicio">Inicio</a>
             </li>
             <li class="dropdown">
                 <a href="#gestionar-animales">Gestionar Animales</a>
@@ -65,7 +65,6 @@
             </li>
 
 
-            <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
         </ul>
     </nav>
      <!--  /* hasta aqui MENU*/-->
@@ -88,29 +87,29 @@
 
 
       <tr>
-      <td><label>Nombre</label></td> 
+      <td><label style="color:  rgb(128, 255, 0)">Nombre</label></td> 
             <td><input type="text"  id="tElm" th:field="${veterinario.nombre}" ></td>
         </tr>
               <tr>
-              <td><label>Apellido</label></td> 
+              <td><label style="color:  rgb(128, 255, 0)">Apellido</label></td> 
             <td><input type="text"  id="tElm" th:field="${veterinario.apellido}"></td>
         </tr>
               <tr>
-              <td><label>Cedula/Pasaporte</label></td> 
+              <td><label style="color:  rgb(128, 255, 0)">Cedula/Pasaporte</label></td> 
             <td><input type="text"  id="tElm" th:field="${veterinario.cedula_pasaporte}"></td>
         </tr>
 
 
         <tr>
-        <td><label>Fecha de nacimiento</label></td> 
+        <td><label style="color:  rgb(128, 255, 0)">Fecha de nacimiento</label></td> 
             <td><input type= "datetime-local"  id="tElm" th:field="${veterinario.fechaNacimiento}" ></td>
         </tr>
         <tr>
-        <td><label>Dirección</label></td> 
+        <td><label style="color:  rgb(128, 255, 0)">Dirección</label></td> 
             <td><input type= "text"  id="tElm" th:field="${veterinario.direccion}"></td>
         </tr>
                 <tr>
-                <td><label>Especialidad</label></td> 
+                <td><label style="color:  rgb(128, 255, 0)">Especialidad</label></td> 
             <td><input type= "text"  id="tElm" th:field="${veterinario.especialidad}"></td>
         </tr>
 
