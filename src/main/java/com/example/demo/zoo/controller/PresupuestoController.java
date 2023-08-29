@@ -58,7 +58,8 @@ public class PresupuestoController {
 		productoPresupuesto=this.iProductoService.procesarPresupuesto(productoPresupuesto);
 		listaProductoPresupuestos.add(productoPresupuesto);
 
-		System.out.println("PresupuestoController>>retornarPresupuesto>>listaProductoPresupuestos: "+listaProductoPresupuestos);
+		System.out.println("PresupuestoController>>retornarPresupuesto>>listaProductoPresupuestos: "
+		+listaProductoPresupuestos);
 		System.out.println("PresupuestoController>>retornarPresupuesto>>bandera: "+bandera);
 		if(bandera.isBandera()==false) {
 			return "redirect:/presupuesto/listarPresupuesto";

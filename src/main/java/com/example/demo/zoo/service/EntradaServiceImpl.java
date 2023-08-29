@@ -55,7 +55,7 @@ public class EntradaServiceImpl implements IEntradaService {
 			for (int i = 0; i < entradaSEC.getCantidad(); i++) {
 				Entrada pivote = new Entrada();
 				pivote.setCliente(null);
-				pivote.setNumero(String.valueOf((int) Math.random() * 1000000000));
+				pivote.setNumero(String.valueOf((int) (Math.random() * 1000000000)));
 				pivote.setCosto(new BigDecimal(2));
 				pivote.setTipo("ninio");
 				pivote.setZoologico(null);
@@ -81,7 +81,7 @@ public class EntradaServiceImpl implements IEntradaService {
 			for (int i = 0; i < entradaSEC.getCantidad(); i++) {
 				Entrada pivote = new Entrada();
 				pivote.setCliente(null);
-				pivote.setNumero(String.valueOf((int) Math.random() * 1000000000));
+				pivote.setNumero(String.valueOf((int) (Math.random() * 1000000000)));
 				pivote.setCosto(new BigDecimal(5));
 				pivote.setTipo("adulto");
 				pivote.setZoologico(null);
@@ -107,7 +107,7 @@ public class EntradaServiceImpl implements IEntradaService {
 			for (int i = 0; i < entradaSEC.getCantidad(); i++) {
 				Entrada pivote = new Entrada();
 				pivote.setCliente(null);
-				pivote.setNumero(String.valueOf((int)Math.random() * 1000000000));
+				pivote.setNumero(String.valueOf((int) (Math.random() * 1000000000)));
 				pivote.setCosto(new BigDecimal(3));
 				pivote.setTipo("tercera_edad");
 				pivote.setZoologico(null);
