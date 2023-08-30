@@ -13,9 +13,9 @@
     <script>
         function multiplicar(vantidad, costoUnitario) {
             r = vantidad.value * costoUnitario;
-            if (costoUnitario == 2) {
+            if (costoUnitario == 4) {
                 document.getElementById("resultado1").value = r;
-            } else if (costoUnitario == 5) {
+            } else if (costoUnitario == 6) {
                 document.getElementById("resultado2").value = r;
             } else if (costoUnitario == 3) {
                 document.getElementById("resultado3").value = r;
@@ -98,9 +98,9 @@
             </tr>
             <tr>
                 <td>Precio Unitario: &nbsp &nbsp</td>
-                <td><label for="html">$2</label>
+                <td><label for="html">$4</label>
                 </td>
-                <td><label for="html">$5</label>
+                <td><label for="html">$6</label>
                 </td>
                 <td><label for="html">$3</label>
                 </td>
@@ -108,10 +108,10 @@
             <tr>
                 <td>Cantidad:&nbsp &nbsp</td>
                 <td><input type="number" step=1 id="cantidadNinio" value="0" min="0" max="300"
-                        onChange="multiplicar(cantidadNinio,2);" 
+                        onChange="multiplicar(cantidadNinio,4);" 
                         th:field="${entradaNAT.entradaNinio.cantidad}"></td>
                 <td><input type="number" step=1 id="cantidadAdulto" value="0" min="0" max="300"
-                        onChange="multiplicar(cantidadAdulto,5);" 
+                        onChange="multiplicar(cantidadAdulto,6);" 
                         th:field="${entradaNAT.entradaAdulto.cantidad}"></td>
                 <td><input type="number" step=1 id="cantidadTerceraEdad" value="0" min="0" max="300"
                         onChange="multiplicar(cantidadTerceraEdad,3);"
