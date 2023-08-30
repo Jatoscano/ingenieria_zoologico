@@ -39,7 +39,6 @@
 				<td th:text="${empleado.fechaRenovacion}"></td>
 				<td th:text="${empleado.tipo}"></td>
 				<td th:text="${empleado.observacion}"></td>
-				<td th:text="${empleado.atencionMedica}"></td>
 
 				<td>
 					<form th:action="@{/empleado/borrarEmpleado/{id}(id=${empleado.id})}" th:object="${empleado}"

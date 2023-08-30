@@ -32,8 +32,10 @@ body{
 }
 
 .logo{
-    margin-left: 30px;
-    
+    font-size: 25px;
+    color: #8883ec;
+    text-transform: uppercase;
+    font-weight: 800;
 }
 
 .submenu {
