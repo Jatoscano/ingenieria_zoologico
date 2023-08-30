@@ -54,26 +54,26 @@
         </tfoot>
     </table>
     <!--Formulario de ingreso de datos del cliente-->
-     <form id="formulario" th:action="@{/zoologico/insertarCliente}" th:object="${cliente}" th:method="POST">
+     <form id="formulario" method="POST">
         <div class="box-container">
 
             <div class="box">
                 <h3>Ingrese Datos de Cliente</h3>
                 <table class="tab">
                     <tr>
-                        <td><input type="text" th:field="${cliente.cedula}" name="cedula" id="tElm" placeholder="Cedula"> </td>
+                        <td><input type="text"  name="cedula" id="tElm" placeholder="Cedula"> </td>
                     </tr>
                     <tr>
-                        <td><input type="text" th:field="${cliente.nombre}" name="nombre" id="tElm" placeholder="Nombre"> </td>
+                        <td><input type="text" name="nombre" id="tElm" placeholder="Nombre"> </td>
                     </tr>
                     <tr>
-                        <td><input type="text" th:field="${cliente.apellido}" name="apellido" id="tElm" placeholder="Apellido"> </td>
+                        <td><input type="text" name="apellido" id="tElm" placeholder="Apellido"> </td>
                     </tr>
                     <tr>
-                        <td><input type="text" th:field="${cliente.direccion}" name="direccion" id="tElm" placeholder="Direccion"></td>
+                        <td><input type="text"  name="direccion" id="tElm" placeholder="Direccion"></td>
                     </tr>
                     <tr>
-                        <td><input type="email" th:field="${cliente.email}" name="email" id="tElm" placeholder="Email "></td>
+                        <td><input type="email"  name="email" id="tElm" placeholder="Email "></td>
                     </tr>
                     <tr>
                         <td> <input type="submit" value="Guardar" id="boton1" class=" btn-r"> </td>

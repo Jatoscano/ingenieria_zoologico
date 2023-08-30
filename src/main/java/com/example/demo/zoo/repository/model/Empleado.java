@@ -56,7 +56,7 @@ public class Empleado {
 		return "Empleado [id=" + id + ", cedulaPasaporte=" + cedulaPasaporte + ", nombre=" + nombre + ", apellido="
 				+ apellido + ", fechaNacimiento=" + fechaNacimiento + ", fechaContrato=" + fechaContrato
 				+ ", fechaRenovacion=" + fechaRenovacion + ", tipo=" + tipo + ", observacion=" + observacion
-				+ ", zoologico=" + zoologico + "]";
+				+  "]";
 	}
 
 	//Get and Set

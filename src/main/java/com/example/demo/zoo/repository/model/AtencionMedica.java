@@ -47,8 +47,7 @@ public class AtencionMedica {
 	@Override
 	public String toString() {
 		return "AtencionMedica [id=" + id + ", peso=" + peso + ", alergia=" + alergia + ", reflejo=" + reflejo
-				+ ", receta=" + receta + ", observacion=" + observacion + ", veterinario=" + veterinario + ", animal="
-				+ animal + "]";
+				+ ", receta=" + receta + ", observacion=" + observacion + ", veterinario=" + veterinario +  "]";
 	}
 
 	public Integer getId() {

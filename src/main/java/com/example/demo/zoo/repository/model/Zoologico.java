@@ -131,7 +131,6 @@ public class Zoologico {
 	@Override
 	public String toString() {
 		return "Zoologico [id=" + id + ", ruc=" + ruc + ", nombre=" + nombre + ", direccion=" + direccion + ", tipo="
-				+ tipo + ", animales=" + animales + ", clientes=" + clientes + ", tiendas=" + tiendas + ", entradas="
-				+ entradas + ", empleados=" + empleados + "]";
+				+ tipo +  "]";
 	}
 }
