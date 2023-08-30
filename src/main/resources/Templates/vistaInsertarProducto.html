@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet"  type="text/css"  href="../estiloInsertarProducto.css">
+    <link rel="stylesheet"  type="text/css" href="../estiloMenuFoot.css">
+
+ 
+</head>
+
+
+
+
+<body>
+
+
+
+
+
+   
+   <!--  /*MENU*/-->
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="http://localhost:8080/zoologico/inicio">Inicio</a>
+            </li>
+            <li class="dropdown">
+                <a href="#gestionar-animales">Gestionar Animales</a>
+                <ul class="submenu">
+                    <li><a href="http://localhost:8080/empleado/ingresarAnimalVst">Insertar</a></li>
+                    <li><a href="http://localhost:8080/empleado/vistaListaAnimalesVst">Listar</a></li>
+                </ul>
+            </li>
+            
+            <li class="dropdown">
+                <a href="#gestionar-alimento">Gestionar Alimento</a>
+                <ul class="submenu">
+                    <li><a href="http://localhost:8080/empleado/vistaListarProductosVst">Listar</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#gestionar-provedores">Gestionar Proveedores</a>
+                <ul class="submenu">
+                    <li><a href="http://localhost:8080/empleado/insertarProveedorVst">Insertar</a></li>
+                  
+                    <li><a href="http://localhost:8080/empleado/buscarTodosProveedoresVst">Listar</a></li>
+                </ul>
+            </li>
+            
+            
+
+
+        </ul>
+    </nav>
+     <!--  /* hasta aqui MENU*/-->
+
+
+
+
+
+
+
+
+
+    <h2 id= "h2titulo" >Ingresar Producto</h2>
+<form th:action="@{/empleado/guardarProducto}" th:object="${producto}" method="POST">
+
+ <div class="div1">
+
+    <table class="tab">
+
+        
+
+        <tr> 
+            <td><input type="text" th:field="${producto.nombre}" id="tElm" placeholder="Nombre"> </td>
+        </tr>
+
+
+        <tr>
+            <td><input type= "number"  id="tElm" th:field="${producto.cantidad}" placeholder="Cantidad"></td>
+        </tr>
+
+
+        <tr>
+           <td id="tElm" ><label>Fecha de caducidad: </label> </td>
+           <td><input type="datetime-local" th:field="${producto.fechaCaducidad}" id="tElm" placeholder="Fecha de caducidad"></td>
+        </tr>
+
+        <tr>
+            <td><input type="number"  id="tElm" th:field="${producto.costo}" placeholder="Costo "></td>
+        </tr>
+
+        <tr>
+            <td><input type="text" id="tElm" th:field="${producto.tipo}" placeholder="Tipo "></td>
+
+        </tr> 
+			<tr>
+				<td id="tElm" >Proveedor: </td>
+				<td>
+		            <select id="tElm" name="proveedorId" required>
+		                <option th:each="proveedor : ${proveedor}" th:value="${proveedor.id}" th:text="${proveedor.nombreCompleto}"></option>
+		            </select>
+		        </td>
+			</tr>
+		
+		<tr>
+            <td><input type="text" id="tElm" th:field="${producto.bodega}" placeholder="Bodega "></td>
+
+        </tr> 
+
+          <tr>
+			<td id="tElm" >¿Necesita refrigeración? [SI/NO]</td>
+
+			<td> <input type="radio" name="myBoolean" value="true" th:field="${producto.refrigeracion}"> </td>
+        	<td> <input type="radio" name="myBoolean" value="false" th:field="${producto.refrigeracion}"> </td>
+
+        </tr> 
+
+     
+            <tr>
+                <td> <input type="submit" value="Guardar" id="boton1"> </td> 
+            </tr>
+
+       
+        
+
+    
+       
+
+</table>
+
+
+ </div>
+
+
+            
+</form>
+
+<footer>
+    <p class="footer-info">© 2023 Mi Sitio Web. Todos los derechos reservados.</p>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/" target="_blank" id="fb"></a>
+        <a href="https://twitter.com/" target="_blank" id="tt"></a>
+        <a href="https://www.instagram.com/" target="_blank" id="ig"></a>
+        <a href="https://www.tiktok.com/" target="_blank" id="tk"></a>
+    </div>
+</footer>
+
+</body>
+
+
+
+</html>

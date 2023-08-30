@@ -1,0 +1,103 @@
+<html>
+
+
+
+<head>
+
+<title>Listado de Animales</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	    <link rel="stylesheet"  type="text/css" href="../estiloListar.css">
+
+
+</head>
+
+
+<body>
+	
+	
+	<h2 id= "h2titulo"> Lista de Productos</h2>
+
+        <table >
+
+            <thead>
+
+               
+                
+                <th>Nombre</th>
+                <th>Candidad</th>
+                <th>Fecha de caducidad </th>
+                <th>Costo</th>
+                <th>Tipo</td>
+                <th>Bodega</td>
+                <th>Refrigeración</td>
+                
+            </thead>
+
+            <tbody>
+
+                    <tr th:each="producto:${productos}" class="fila-animal">
+
+                        <td th:text="${producto.nombre}"></td>
+                        <td th:text="${producto.cantidad}"></td>
+                        <td th:text="${producto.fechaCaducidad}"></td>
+                        <td th:text="${producto.costo}"></td>
+                        <td th:text="${producto.tipo}"></td>
+                        <td th:text="${producto.bodega}"></td>
+                        <td th:text="${producto.refrigeracion}"></td>
+
+                     
+                        <td>
+							<form th:action="@{/empleado/borrarProducto/{id}(id=${producto.id})}" th:object="${producto}" th:method="DELETE" >
+                            <input type="submit" value="Borrar" id="boton1">
+							</form>
+                        </td>
+                        
+                        <td>
+							
+						<form th:action="@{/empleado/editarProductoVst/{id}(id=${producto.id})}" th:object="${producto}" th:method="GET" >
+                            <input type="submit" value="Editar" id="boton1">
+						</form>
+                        </td>
+                   
+                   
+                   
+                    </tr>
+
+
+
+            </tbody>
+
+        </table>
+
+
+
+<!-- Incluir SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script th:if="${alertaCantidadUno}" th:inline="javascript">
+    // Mostrar la alerta personalizada
+    Swal.fire({
+        icon: 'warning', // Icono de la alerta
+        title: '¡Alerta!', // Título de la alerta
+        text: 'Hay productos con cantidad igual a 1! \n CONTACTA CON EL PROVEEDOR', // Texto de la alerta
+        confirmButtonText: 'Cerrar', // Texto del botón de confirmación
+        customClass: {
+            popup: 'alert-class', // Clase personalizada para la alerta
+        },
+    });
+</script>
+
+<style>
+    /* Define los estilos personalizados para la alerta */
+    .alert-class {
+        background-color: #f44336;
+        color: white;
+        font-size: 16px;
+    }
+</style>
+<!-- Incluir SweetAlert -->
+
+</body>
+
+
+</html>

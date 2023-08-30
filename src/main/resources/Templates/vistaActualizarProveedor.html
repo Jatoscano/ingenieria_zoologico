@@ -1,0 +1,90 @@
+<html>
+
+		<head>
+
+				<title>Insertar Proveedores</title>
+		
+		
+    <link rel="stylesheet"  type="text/css"  href="../../estiloInsertarProveedor.css">
+    <link rel="stylesheet"  type="text/css" href="../../estiloMenuFoot.css">		</head>
+
+
+		<body>
+			
+			
+			
+		  <!-- /*MENU*/-->
+    <nav>
+        <ul>
+            <li class="dropdown">
+              <a href="http://localhost:8080/zoologico/inicio">Inicio</a>            </li>
+            <li class="dropdown">
+                <a href="#gestionar-animales">Gestionar Animales</a>
+                <ul class="submenu">
+           
+                  
+                    <li><a href="http://localhost:8080/empleado/vistaListaAnimalesVst">Listar</a></li>
+                	<li><a href="http://localhost:8080/empleado/ingresarAnimalVst">Insertar</a></li>
+
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#gestionar-alimento">Gestionar Alimento</a>
+                <ul class="submenu">
+                    <li><a href="http://localhost:8080/empleado/vistaListarProductosVst">Listar</a></li>
+                    <li><a href="http://localhost:8080/empleado/insertarProductoVst">Insertar</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#gestionar-provedores">Gestionar Proveedores</a>
+                <ul class="submenu">
+                    <li><a href="http://localhost:8080/empleado/insertarProveedorVst">Insertar</a></li>
+
+                    <li><a href="http://localhost:8080/empleado/buscarTodosProveedoresVst">Listar</a></li>
+                </ul>
+            </li>
+            
+            
+
+
+
+        </ul>
+    </nav>
+    
+    
+    
+     <!--  /* hasta aqui MENU*/-->	
+			
+			
+			<h2 id= "h2titulo" >Actualizar de Proveedores</h2>
+			
+	
+			
+			
+
+			
+
+		<form form th:action="@{/empleado/actualizarProv/{id}(id=${proveedor.id})}" th:object="${id}" th:method="POST">
+
+ <div class="div1">		
+				<table class="tab">
+					<tr><td id="tElm" >Nombre: </td><td> <input type="text" id="tElm"    th:field="${proveedor.nombreCompleto}"></td></tr>
+	
+					<tr><td id="tElm" >Fecha de entrega: </td><td> <input type="datetime-local"   id="tElm"  th:field="${proveedor.tiempoEntrega}"> </td> </tr>
+	
+					<tr><td id="tElm" >Telefono: </td><td> <input type="text"  id="tElm"  th:field="${proveedor.celular}"></td>   </tr>
+	
+					<tr><td id="tElm" >Correo: </td><td> <input type="email" id="tElm"   th:field="${proveedor.email}" > </td> </tr>
+	
+					<tr> <td> <input type="submit"  id="tElm"  value="Guardar"> </td> </tr>
+	
+				</table>
+				
+	</div>			
+
+
+			</form>
+
+		</body>
+
+</html>

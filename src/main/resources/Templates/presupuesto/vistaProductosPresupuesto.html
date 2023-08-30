@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" 
+        crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th>
+                    <label>ID</label>
+                </th>
+                <th>
+                    <label>NOMBRE</label>
+                </th>
+                <th>
+                    <label>CANTIDAD DISPONIBLE</label>
+                </th>
+                <th>
+                    <label>CADUCIDAD</label>
+                </th>
+                <th>
+                    <label>COSTO</label>
+                </th>
+                <th>
+                    <label>TIPO</label>
+                </th>
+            </tr>
+        </thead>
+        <hbody>
+            <tr th:each="productoConcreto:${modeloListaProductos}">
+                <td th:text="${productoConcreto.id}"></td>
+                <td th:text="${productoConcreto.nombre}"></td>
+                <td th:text="${productoConcreto.cantidad}"></td>
+                <td th:text="${productoConcreto.fechaCaducidad}"></td>
+                <td th:text="${productoConcreto.costo}"></td>
+                <td th:text="${productoConcreto.tipo}"></td>
+            </tr>
+
+        </hbody>
+    </table>
+
+    <form th:action="@{/presupuesto/retornarPresupuesto}" th:method="GET">
+        <table>
+            <tr>
+                <td>
+                    <label> Ingrese el identificador: </label>
+                </td>
+                <td>
+                    <input type="text" id="identificador_producto" th:field="${producto.id}">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label> Ingrese la cantidad deseada: </label>
+                </td>
+                <td>
+                    <input type="text" id="cantidad_producto" th:field="${producto.cantidad}">
+                </td>
+            </tr>
+            <tr>
+                <label>
+                    <input type="checkbox" id="cbox1" value="first_checkbox" th:field="${bandera.bandera}"/> 
+                    Seleccione para crear el presupuesto
+                </label>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Agregar otro producto">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+</body>
+
+</html>

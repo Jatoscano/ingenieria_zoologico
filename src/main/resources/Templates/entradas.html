@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"  type="text/css"  href="../../stylec.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="/js/scriptE.js"></script>
+  <title>ZooAMARU.ec </title>
+</head>
+
+<body>
+
+
+  <header class="header">
+
+    <div class="menu container">
+      <a class="logo">ZooAMARU</a>
+      <input type="checkbox" id="menu" />
+      <nav class="navbar">
+            <ul>
+               <li><a href="http://localhost:8080/zoologico/inicio">Inicio</a></li>
+                <li><a href="http://localhost:8080/zoologico/nosotros">Nosotros</a></li>
+                <li><a href="http://localhost:8080/zoologico/tienda">Productos</a></li>
+                <li><a href="http://localhost:8080/zoologico/fauna">Fauna</a></li>
+               
+                <li><a href="http://localhost:8080/zoologico/entradas">Entradas</a></li>
+             </ul> 
+      </nav>
+
+      <div>
+        <ul>
+          <li class="submenu">
+            <img src="/images/car.svg" id="img-carrito" alt="">
+            <div id="carrito">
+              <!--<a href="a" id="vaciar-carrito" class="btn-3">Vaciar carrito</a>-->
+              <a href="a" id="vaciar-carrito" class="btn-3" style="color: rgb(4, 237, 245);">Vaciar carrito</a>
+              <a style="color: #443077;">..........................</a>
+              <a href="http://localhost:8080/zoologico/entradas2.html" class="btn-4" style="color: rgb(44, 251, 8);">Realizar compra</a>
+              <table id="lista-carrito">
+                <thead>
+                  <tr>
+                    <th>Imagen</th>
+                    <th>Entrada</th>
+                    <th>Precio</th>
+                    <th>Quitar</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+              
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="mensaje-agregado" class="mensaje-agregado">Producto agregado al carrito</div>
+
+    <div class="header-content container"  >
+        <img src="/images/entrada.jpg"   id="fond" alt="">
+      </div>
+
+  </header>
+
+
+  <hr>
+  <section class="promociones container" id="lista-1">
+    <h2 style="color:  #753dcf">ENTRADAS</h2>
+    <div class="categories">
+
+      <div class="categorie">
+        <div class="categorie-1">
+          <h3>Boleto para Niño</h3>
+          <div class="prices">
+            <p class="precio" style="color:  #2dd3ed"> $4</p>
+          </div>
+          <a href="a" class="agregar-carrito btn-1" data-id="1">Agregar al carrito</a>
+        </div>
+        <div class="categorie-img">
+          <img src="/images/bto.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="categorie">
+        <div class="categorie-1">
+          <h3>Boleto Para Adulto</h3>
+          <div class="prices">
+            <p class="precio" style="color:  #2dd3ed">$6</p>
+          </div>
+          <a href="a" class="agregar-carrito btn-1" data-id="2">Agregar al carrito</a>
+        </div>
+        <div class="categorie-img">
+          <img src="/images/bto.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="categorie">
+        <div class="categorie-1">
+          <h3>Boleto Para Adulto Mayor</h3>
+          <div class="prices">
+            <p class="precio" style="color:  #2dd3ed">$3</p>
+          </div>
+          <a href="a" class="agregar-carrito btn-1" data-id="3">Agregar al carrito</a>
+        </div>
+        <div class="categorie-img">
+          <img src="/images/bto.jpg" alt="">
+        </div>
+      </div>
+    </div>
+   
+  </section>
+
+  <hr>
+
+  <section class="products container" id="lista-2">
+  
+  </section>
+</body>
+
+</html>
