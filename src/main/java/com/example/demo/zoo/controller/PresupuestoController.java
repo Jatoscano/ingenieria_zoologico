@@ -41,7 +41,6 @@ public class PresupuestoController {
 		List<Producto> listaProductos=this.iProductoService.buscarTodos();
 		model.addAttribute("modeloListaProductos",listaProductos);
 
-
 		return "presupuesto/vistaProductosPresupuesto";
 
 	}
