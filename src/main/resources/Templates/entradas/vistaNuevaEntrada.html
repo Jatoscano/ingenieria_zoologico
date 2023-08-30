@@ -5,15 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" 
+	crossorigin="anonymous">
 
     <script>
         function multiplicar(vantidad, costoUnitario) {
             r = vantidad.value * costoUnitario;
-            if (costoUnitario == 2) {
+            if (costoUnitario == 4) {
                 document.getElementById("resultado1").value = r;
-            } else if (costoUnitario == 5) {
+            } else if (costoUnitario == 6) {
                 document.getElementById("resultado2").value = r;
             } else if (costoUnitario == 3) {
                 document.getElementById("resultado3").value = r;
@@ -35,7 +37,8 @@
                     <label class="form-floating mb-3">Cedula: </label>
                 </td>
                 <td>
-                    <input type="text" id="cliente.cedula" th:field="${cliente.cedula}" class="form-control" readonly>
+                    <input type="text" id="cliente.cedula" th:field="${cliente.cedula}" 
+                    class="form-control" readonly>
                 </td>
             </tr>
 
@@ -44,7 +47,8 @@
                     <label class="form-floating mb-3">Nombre: </label>
                 </td>
                 <td >
-                    <input type="text" id="datosCliente.nombre" th:value="${datosCliente.nombre}" class="form-control" readonly>
+                    <input type="text" id="datosCliente.nombre" th:value="${datosCliente.nombre}" 
+                    class="form-control" readonly>
                 </td>
             </tr>
 
@@ -53,7 +57,8 @@
                     <label class="form-floating mb-3">Apellido: </label>
                 </td>
                 <td>
-                    <input type="text" id="datosCliente.apellido" th:value="${datosCliente.apellido}" class="form-control" readonly>
+                    <input type="text" id="datosCliente.apellido" th:value="${datosCliente.apellido}" 
+                    class="form-control" readonly>
                 </td>
             </tr>
 
@@ -63,7 +68,8 @@
                     <label class="form-floating mb-3">Dirección: </label>
                 </td>
                 <td>
-                    <input type="text" id="datosCliente.direccion" th:value="${datosCliente.direccion}" class="form-control" readonly>
+                    <input type="text" id="datosCliente.direccion" th:value="${datosCliente.direccion}" 
+                    class="form-control" readonly>
                 </td>
             </tr>
 
@@ -72,7 +78,8 @@
                     <label class="form-floating mb-3">email: </label>
                 </td>
                 <td>
-                    <input type="text" id="datosCliente.email" th:field="${datosCliente.email}" class="form-control" readonly>
+                    <input type="text" id="datosCliente.email" th:field="${datosCliente.email}" 
+                    class="form-control" readonly>
                 </td>
             </tr>
 
@@ -91,9 +98,9 @@
             </tr>
             <tr>
                 <td>Precio Unitario: &nbsp &nbsp</td>
-                <td><label for="html">$2</label>
+                <td><label for="html">$4</label>
                 </td>
-                <td><label for="html">$5</label>
+                <td><label for="html">$6</label>
                 </td>
                 <td><label for="html">$3</label>
                 </td>
@@ -101,9 +108,11 @@
             <tr>
                 <td>Cantidad:&nbsp &nbsp</td>
                 <td><input type="number" step=1 id="cantidadNinio" value="0" min="0" max="300"
-                        onChange="multiplicar(cantidadNinio,2);" th:field="${entradaNAT.entradaNinio.cantidad}"></td>
+                        onChange="multiplicar(cantidadNinio,4);" 
+                        th:field="${entradaNAT.entradaNinio.cantidad}"></td>
                 <td><input type="number" step=1 id="cantidadAdulto" value="0" min="0" max="300"
-                        onChange="multiplicar(cantidadAdulto,5);" th:field="${entradaNAT.entradaAdulto.cantidad}"></td>
+                        onChange="multiplicar(cantidadAdulto,6);" 
+                        th:field="${entradaNAT.entradaAdulto.cantidad}"></td>
                 <td><input type="number" step=1 id="cantidadTerceraEdad" value="0" min="0" max="300"
                         onChange="multiplicar(cantidadTerceraEdad,3);"
                         th:field="${entradaNAT.entradaTerceraEdad.cantidad}"></td>

@@ -17,3 +17,4 @@ public class Bandera {
 		return "Bandera [bandera=" + bandera + "]";
 	}
 }
+
