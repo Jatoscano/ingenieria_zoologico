@@ -161,13 +161,13 @@ public class EmpleadoController {
 		
 		
 		
-		///ALERTA
+	///ALERTA
 		model.addAttribute("productos", productos);
 
 	    boolean alertaCantidadUno = productos.stream().anyMatch(producto -> producto.getCantidad() == 1);
 	    model.addAttribute("alertaCantidadUno", alertaCantidadUno);
 		
-		///
+	///
 		
 		
 		

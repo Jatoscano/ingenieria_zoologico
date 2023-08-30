@@ -12,7 +12,7 @@
     <div class="head">
 
         <div class="logo">
-            <a href="a">LOGO</a>
+           <a style=" color: #8883ec;"class="logo">ZooAMARU</a>
 
         </div>
         <nav class="navbar">
@@ -21,9 +21,14 @@
                 <li><a href="http://localhost:8080/zoologico/nosotros">Nosotros</a></li>
                 <li><a href="http://localhost:8080/zoologico/tienda">Productos</a></li>
                 <li><a href="http://localhost:8080/zoologico/fauna">Fauna</a></li>
-                <li><a href="a">Administracion</a></li>
-                <li><a href="http://localhost:8080/zoologico/entradas">Entradas</a></li>
-             </ul> s
+                <li class="dropdown">
+					<a>Administracion</a>
+					<ul class="submenu">
+                    	<li><a href="http://localhost:8080/empleado/ingresarAnimalVst">Gestionar Zoologico</a></li>
+                    	<li><a href="http://localhost:8080/empleado/ingresarEmpleadoVst">Gestion de Empleado</a></li>
+                	</ul>
+                </li>                <li><a href="http://localhost:8080/zoologico/entradas">Entradas</a></li>
+             </ul> 
         </nav>
 
     </div>
@@ -32,5 +37,6 @@
         <h2 class="title"></h2>
         <img src="/images/nosotros.png" alt="">
       </header>
+      
 </body>
 </html>

@@ -170,7 +170,6 @@ public class Producto {
 	public String toString() {
 		return "Producto [id=" + id + ", nombre=" + nombre + ", cantidad=" + cantidad + ", fechaCaducidad="
 				+ fechaCaducidad + ", costo=" + costo + ", tipo=" + tipo + ", bodega=" + bodega + ", refrigeracion="
-				+ refrigeracion + ", animales=" + animales + ", proveedores=" + proveedores + ", proforma=" + proforma
-				+ ", tienda=" + tienda + "]";
+				+ refrigeracion;
 	}	
 }
